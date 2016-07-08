@@ -28,6 +28,13 @@ branch名は、*スクリプト/モデル名*にしてください。
     $ git commit -m “[branch名]の制作”
     $ git push origin [branch名]
 
+> pushのオプション(origin [branch名] の部分)については、
+> 
+>     $ git push -u origin [branch名]
+> 
+> とすることで次回から省略可能。（ブランチごとに必要）
+
+
 ブラウザ上の [escapeVR_3Gのページ](https://github.com/shihoooox/escapeVR_3G "escapeVR_3G")で
 `Compare & pull request`を押す。  
 移動先のページで、
@@ -66,8 +73,8 @@ branch名は、*スクリプト/モデル名*にしてください。
     $ git commit -m “[進捗状態]”
     $ git push origin [branch名]
 
-を行う。
-エラーが出たら指示に従ってください。
+を行う。  
+エラーが出たら指示に従ってください。  
 
 リモートとローカルの状態が異なっているとpushできないので、リモートに更新がある場合、pullしてからpushしてください。  
 
