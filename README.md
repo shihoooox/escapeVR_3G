@@ -14,8 +14,8 @@ branch名は、*スクリプト/モデル名*にしてください。
 
     $ git branch [branch名]
 
-    《例》$ git branch MainObjectMenuManager
-    《例》$ git branch model_ball
+>     《例》$ git branch MainObjectMenuManager
+>     《例》$ git branch model_ball
 
 作成したブランチに移動  
 
@@ -49,15 +49,15 @@ branch名は、*スクリプト/モデル名*にしてください。
 
 > `- [ ]`はチェックボックスのコマンドです
 
-    《例》 
-    ーーーーーーーーーーーーーーーーーーー
-    タイトル : MainObjectMenuManagerの制作
-    コメント : 
-    - [ ] Start
-    - [ ] Update
-    - [ ] setObject
-    - [ ] unsetObject
-    ーーーーーーーーーーーーーーーーーーー 
+>     《例》 
+>     ーーーーーーーーーーーーーーーーーーー
+>     タイトル : MainObjectMenuManagerの制作
+>     コメント : 
+>     - [ ] Start
+>     - [ ] Update
+>     - [ ] setObject
+>     - [ ] unsetObject
+>     ーーーーーーーーーーーーーーーーーーー 
 
 を入力し、`Create pull request`を押す。  
 これで作業を行うブランチの準備ができました。  
