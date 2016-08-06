@@ -20,7 +20,7 @@ public class MainObjectMenuInstance : MonoBehaviour {
 	}
 
 	// オブジェクトを説明欄に移動させたり戻したりするメソッド
-	void moveDetailPos(bool b){
+	public void moveDetailPos(bool b){
 		Debug.LOG("未完成です");
 		changePos = b; // changePos アイテムがある場所 false：リスト true：拡大
 		if(nowPos != changePos) { //--(1)
@@ -35,7 +35,7 @@ public class MainObjectMenuInstance : MonoBehaviour {
 	}
 
 	//  MainObjectMenuのオブジェクト特有の動き(zippoのふたが開く、マッチの火 がつくなど)を制御する関数。各オブジェクトに対するモーションを全てここに書 くわけにはいかないので、処理内容に記述方法で個々のモーションを管理します。
-	void actOnDetail(int inObjectType, int actNum){
+	public void actOnDetail(int inObjectType, int actNum){
 		Debug.LOG("未完成です");
 		if (this.getComponent<MinaObjectMenuForm> != null) {
 
