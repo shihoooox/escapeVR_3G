@@ -1,73 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainObjectMenuManager : MonoBehaviour {
+public class MainObjectMenuInstance : MonoBehaviour {
 
-	public List<GameObject> frameList;
-	private List<int> activeForms; // アクティブになってるフォームを表示する 
-	private int selectedObjectType // 選択されているobjectTypeを保持する、なければ-1
+	public String description;
+	public Vector3 homePos;
+	private bool nowPos;
+	private bool changePos;
 
 	// Use this for initialization
 	void Start () {
-		isSelected = false;
-		onScreen = false;
-		isActive = false;
+		homePos = this.translate.position;
+		nowPos = false;
+		changePos = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		childObject.getComponent<MainObjectMenuInstance>().homePos = this.transform.position;
 	}
 
-	//子オブジェクトであるchildObjectを説明欄へ移動させたりもどしたりするメソッド ←仕様書のメソッドの働きを書いてください。===
-	//===↓ Start, Update以外のすべてのメソッドの宣言の前に、フィールド変数のように「public」をつけてください。===
-	public void showDetail(bool b){
-		if(childObject.getComponent<MainObjectMenuInstance> != null){
-			chaildObject.getComponent<MainObjectMenuInstance>.moveDetailPos(b);
-		}
+	// メニューのオブジェクトを表示させる(アイテムを取ったことにする)
+	public void setObject(int objectType){
 	}
 
-	//
-	public void makeAct(int actNum){
-		if(childObject.getComponent<MainObjectMenuInstance>() != null){
-			childObject.getComponent<MainObjectMenuInstance>().actOnDetail(objectType, actNum);
-		}
+	// メニューのオブジェクトを非表示にさせる(アイテムを使ったことにする)
+	public void unsetObject(int objectType){
 	}
 
-	void selectedMotion(bool selected){
-		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
-		isSelected = selected;
-		Debug.LOG("未完成です");
-
+	// メニューを画面から外す
+	public void moveMenuForm(bool toHome){
 	}
 
-	void appear(bool active){
-		if(isActive != active){ // ---*1
-			childObject.setActive(active);
-			isActive = active;
-		}
+	// アイテムを全部デセレクトしてからobjectTypeのアイテムをセレクトする。
+	public void indicateSelected(int objectType){
 	}
 
-	void moveToScreen(bool to, Transform cameraPos){
-		Debug.LOG("未完成です");
-		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
-		onScreen = to;
-
-		//<(1)について>
-		//===moveToScreenはFlameと子オブジェクトを丸ごとカメラの前に持ってきたり外したりするメソッドなので===
-		//===ObjectMove.MoveObjectの第一引数はthisです。===
-		//===(childObjectはthisの子なのでthisを移動すればchildObjectも移動します)===
-
-		//<(2)について>
-		//===最終的には、仕様書の処理内容にあるように、ObjectMover.moveObjectの第二引数のtransformは===
-		//===水平移動になるよう、cameraPosから計算してください。===
-
-		if(to){
-			//カメラの中へ
-			ObjectMover.moveObject (childObject/*(1)*/, transform/*(2)*/, 1, 2);
-		}else{
-			//カメラの外へ
-			ObjectMover.moveObject (childObject/*(1)*/, transform/*(2)*/, 1, 2);
-		}
+	// セレクトされてるアイテムの詳細を表示する
+	public void showObjectsDetail(bool pushed){
 	}
+
+	// 個々のモーションがあればframeListからobjectTypeのオブジェクトのmakeActを 呼び出す
+	public void extraMotion(int objectType, int actNum){
+	}
+
+	// メニューを画面に表示させたり外したりするメソッド
+	public void moveToScreen(bool to, transform cameraPos){
+	}
+
+
+
 }
