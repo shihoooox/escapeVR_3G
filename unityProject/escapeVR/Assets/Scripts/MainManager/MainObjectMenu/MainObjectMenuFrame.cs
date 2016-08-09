@@ -18,21 +18,23 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		childObject.getComponent<MainObjectMenuInstance>().homePos = this.transform.position;
+		//childObject.GetComponent<MainObjectMenuInstance>().homePos = this.transform.position; //Frameはマスターの子オブジェクトなので位置を合わせる必要なし
 	}
 
 	//子オブジェクトであるchildObjectを説明欄へ移動させたりもどしたりするメソッド ←仕様書のメソッドの働きを書いてください。===
 	//===↓ Start, Update以外のすべてのメソッドの宣言の前に、フィールド変数のように「public」をつけてください。===
 	public void showDetail(bool b){
-		if(childObject.getComponent<MainObjectMenuInstance> != null){
-			chaildObject.getComponent<MainObjectMenuInstance>.moveDetailPos(b);
+		if(childObject.GetComponent<MainObjectMenuInstance> != null){
+			MainObjectMenuInstance child = childObject.GetComponent<MainObjectMenuInstance>;
+			child.moveDetailPos (b);
 		}
 	}
 
 	//子オブジェクトに特別な動きを命令するメソッド
 	public void makeAct(int actNum){
-		if(childObject.getComponent<MainObjectMenuInstance>() != null){
-			childObject.getComponent<MainObjectMenuInstance>().actOnDetail(objectType, actNum);
+		if(childObject.GetComponent<MainObjectMenuInstance>() != null){
+			MainObjectMenuInstance child = childObject.GetComponent<MainObjectMenuInstance>();
+			child.actOnDetail (objectType, actNum);
 		}
 	}
 
@@ -41,15 +43,16 @@ public class MainObjectMenuFrame : MonoBehaviour {
 		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
 		if(isSelected != selected){
 			isSelected = selected;
+			//ここに処理を書く
 		}
-		Debug.LOG("未完成です");
+		Debug.Log("未完成です");
 
 	}
 
 	//自分がユーザが取得したオブジェクトであれば、childObjectを表示させる
 	public void appear(bool active){
-		if(isActive != active){ // ---*1
-			childObject.setActive(active);
+		if(isActive != active){
+			childObject.SetActive(active);
 			isActive = active;
 		}
 	}
