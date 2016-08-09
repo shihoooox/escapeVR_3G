@@ -53,31 +53,4 @@ public class MainObjectMenuFrame : MonoBehaviour {
 			isActive = active;
 		}
 	}
-
-	//onScreen = toで更新
-	//toがtrueなら画面へ、falseならcameraの視覚の外へ出す
-	public void moveToScreen(bool to, Transform cameraPos){
-		Debug.LOG("未完成です");
-		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
-		if(onScreen != to){
-			
-		}
-
-		//<(1)について>
-		//===moveToScreenはFlameと子オブジェクトを丸ごとカメラの前に持ってきたり外したりするメソッドなので===
-		//===ObjectMove.MoveObjectの第一引数はthisです。===
-		//===(childObjectはthisの子なのでthisを移動すればchildObjectも移動します)===
-
-		//<(2)について>
-		//===最終的には、仕様書の処理内容にあるように、ObjectMover.moveObjectの第二引数のtransformは===
-		//===水平移動になるよう、cameraPosから計算してください。===
-
-		if(to){
-			//カメラの中へ
-			ObjectMover.moveObject (childObject/*(1)*/, transform/*(2)*/, 1, 2);
-		}else{
-			//カメラの外へ
-			ObjectMover.moveObject (childObject/*(1)*/, transform/*(2)*/, 1, 2);
-		}
-	}
 }
