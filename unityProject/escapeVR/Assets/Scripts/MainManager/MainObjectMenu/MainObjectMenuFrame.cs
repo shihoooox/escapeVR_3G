@@ -29,31 +29,39 @@ public class MainObjectMenuFrame : MonoBehaviour {
 		}
 	}
 
-	//
+	//子オブジェクトに特別な動きを命令するメソッド
 	public void makeAct(int actNum){
 		if(childObject.getComponent<MainObjectMenuInstance>() != null){
 			childObject.getComponent<MainObjectMenuInstance>().actOnDetail(objectType, actNum);
 		}
 	}
 
-	void selectedMotion(bool selected){
+	//選択されていることを可視化する処理
+	public void selectedMotion(bool selected){
 		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
-		isSelected = selected;
+		if(isSelected != selected){
+			isSelected = selected;
+		}
 		Debug.LOG("未完成です");
 
 	}
 
-	void appear(bool active){
+	//自分がユーザが取得したオブジェクトであれば、childObjectを表示させる
+	public void appear(bool active){
 		if(isActive != active){ // ---*1
 			childObject.setActive(active);
 			isActive = active;
 		}
 	}
 
-	void moveToScreen(bool to, Transform cameraPos){
+	//onScreen = toで更新
+	//toがtrueなら画面へ、falseならcameraの視覚の外へ出す
+	public void moveToScreen(bool to, Transform cameraPos){
 		Debug.LOG("未完成です");
 		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
-		onScreen = to;
+		if(onScreen != to){
+			
+		}
 
 		//<(1)について>
 		//===moveToScreenはFlameと子オブジェクトを丸ごとカメラの前に持ってきたり外したりするメソッドなので===
