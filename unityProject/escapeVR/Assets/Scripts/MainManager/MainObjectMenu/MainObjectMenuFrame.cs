@@ -18,14 +18,14 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//childObject.GetComponent<MainObjectMenuInstance>().homePos = this.transform.position; //Frameはマスターの子オブジェクトなので位置を合わせる必要なし
+		childObject.GetComponent<MainObjectMenuInstance>().homePos = this.transform.position; //Frameはマスターの子オブジェクトなので位置を合わせる必要なし
 	}
 
 	//子オブジェクトであるchildObjectを説明欄へ移動させたりもどしたりするメソッド ←仕様書のメソッドの働きを書いてください。===
 	//===↓ Start, Update以外のすべてのメソッドの宣言の前に、フィールド変数のように「public」をつけてください。===
 	public void showDetail(bool b){
-		if(childObject.GetComponent<MainObjectMenuInstance> != null){
-			MainObjectMenuInstance child = childObject.GetComponent<MainObjectMenuInstance>;
+		if(childObject.GetComponent<MainObjectMenuInstance>() != null){
+			MainObjectMenuInstance child = childObject.GetComponent<MainObjectMenuInstance>();
 			child.moveDetailPos (b);
 		}
 	}
