@@ -9,12 +9,14 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	public bool onScreen;
 	public bool isActive;
 	public int objectType;
+	private Color originalColor;
 
 	// Use this for initialization
 	void Start () {
 		isSelected = false;
 		onScreen = false;
 		isActive = false;
+		originalColor = GetComponent<Renderer> ().material.color;
 	}
 	
 	// Update is called once per frame
@@ -47,14 +49,17 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	//選択されていることを可視化する処理
 	public void selectedMotion(bool selected){
 		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
-		Renderer rend = this.GetComponent<Renderer> ();
-		Color renderColor = rend.material.color;
 		if (isSelected != selected) {
+			Debug.Log ("selectedMotion " + selected);
 			if (selected) {
-				renderColor.a = 0.6f;
+				Debug.Log ("a");
+				Color c = Color.red;
+				c.a = 0.6f;
+				GetComponent<Renderer> ().material.SetColor ("_Color", c);
 			} else {
-				renderColor.a = 0.2f;
+				GetComponent<Renderer> ().material.SetColor("_Color", originalColor);
 			}
+			isSelected = selected;
 		}
 		//Debug.Log("未完成です");
 

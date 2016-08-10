@@ -29,7 +29,7 @@ public class MainManager : MonoBehaviour {
 				int type = -1; //衝突したobjectType
 				if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
 					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
-					MainObjectMenuManager manager = hit.collider.gameObject.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					MainObjectMenuManager manager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
 					type = frame.objectType;
 					if (type > 0) {
 						manager.indicateSelected (type);
