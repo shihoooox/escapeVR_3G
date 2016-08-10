@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MainObjectMenuFrame : MonoBehaviour {
 
@@ -18,7 +19,12 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		childObject.GetComponent<MainObjectMenuInstance>().homePos = this.transform.position; //Frameはマスターの子オブジェクトなので位置を合わせる必要なし
+		try {
+			MainObjectMenuInstance instance = childObject.GetComponent<MainObjectMenuInstance>();
+			instance.homePos = this.transform.position;
+		} catch (NullReferenceException e) {
+			//Debug.Log ("ぬるぽ"); //上の代入処理でぬるぽになるのを解決する必要がある。
+		}
 	}
 
 	//子オブジェクトであるchildObjectを説明欄へ移動させたりもどしたりするメソッド ←仕様書のメソッドの働きを書いてください。===
@@ -41,11 +47,16 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	//選択されていることを可視化する処理
 	public void selectedMotion(bool selected){
 		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
-		if(isSelected != selected){
-			isSelected = selected;
-			//ここに処理を書く
+		Renderer rend = this.GetComponent<Renderer> ();
+		Color renderColor = rend.material.color;
+		if (isSelected != selected) {
+			if (selected) {
+				renderColor.a = 0.6f;
+			} else {
+				renderColor.a = 0.2f;
+			}
 		}
-		Debug.Log("未完成です");
+		//Debug.Log("未完成です");
 
 	}
 

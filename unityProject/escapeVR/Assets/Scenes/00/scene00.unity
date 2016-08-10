@@ -1048,7 +1048,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 1
+  objectType: 4
 --- !u!23 &334181656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2995,7 +2995,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 1
+  objectType: 2
 --- !u!23 &1282802187
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3748,7 +3748,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 1
+  objectType: 3
 --- !u!23 &1745695633
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 1
+  objectType: 5
 --- !u!23 &1863277112
 MeshRenderer:
   m_ObjectHideFlags: 0

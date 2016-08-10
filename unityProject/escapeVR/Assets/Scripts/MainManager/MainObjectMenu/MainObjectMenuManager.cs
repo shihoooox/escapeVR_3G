@@ -58,12 +58,12 @@ public class MainObjectMenuManager : MonoBehaviour {
 	}
 
 	// アイテムを全部デセレクトしてからobjectTypeのアイテムをセレクトする。
-	public void indicateSelected(int objectType){
+	public void indicateSelected(int objectType) {
 		for (int i = 0; i < frameList.Count; i++) {
 			MainObjectMenuFrame tmp = frameList[i].GetComponent<MainObjectMenuFrame> ();
 			tmp.selectedMotion(tmp.objectType == objectType);
 		}
-		if(selectedObjectType != objectType){
+		if(selectedObjectType != objectType) {
 			selectedObjectType = objectType;
 		}
 	}
