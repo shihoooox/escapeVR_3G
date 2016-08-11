@@ -5,11 +5,14 @@ using System;
 public class MainObjectMenuFrame : MonoBehaviour {
 
 	public GameObject childObject;
-	public bool isSelected;
-	public bool onScreen;
-	public bool isActive;
-	public int objectType;
+	public GameObject detailPos; //詳細位置
+	public bool isSelected; //ユーザが選択しているかどうか
+	public bool onScreen; //これが画面に出ているかどうか
+	public bool isActive; //これが表示されているかどうか
+	public bool isInsideFrame; //フレームの中にいるかどうか
+	public int objectType; //オブジェクト固有の番号
 	private Color originalColor;
+	public Transform baseChildPos; //-C
 
 	// Use this for initialization
 	void Start () {
@@ -17,16 +20,19 @@ public class MainObjectMenuFrame : MonoBehaviour {
 		onScreen = false;
 		isActive = false;
 		originalColor = GetComponent<Renderer> ().material.color;
+		baseChildPos = childObject.transform; //子オブジェクトのtransformを保存
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		try {
-			MainObjectMenuInstance instance = childObject.GetComponent<MainObjectMenuInstance>();
-			instance.homePos = this.transform.position;
+			//MainObjectMenuInstance instance = childObject.GetComponent<MainObjectMenuInstance>();
+			//instance.homePos = this.transform.position; //移動処理はFrameが行うことになったのでこの処理自体不要になった
 		} catch (NullReferenceException e) {
 			//Debug.Log ("ぬるぽ"); //上の代入処理でぬるぽになるのを解決する必要がある。
 		}
+
+
 	}
 
 	//子オブジェクトであるchildObjectを説明欄へ移動させたりもどしたりするメソッド ←仕様書のメソッドの働きを書いてください。===

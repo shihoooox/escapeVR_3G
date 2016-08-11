@@ -20,7 +20,7 @@ public class MainObjectMenuInstance : MonoBehaviour {
 	void Update () {
 	}
 
-	// オブジェクトを説明欄に移動させたり戻したりするメソッド
+	// オブジェクトを説明欄に移動させたり戻したりするメソッド-使わない
 	public void moveDetailPos(bool b){
 		Debug.Log("未完成です");
 		/*

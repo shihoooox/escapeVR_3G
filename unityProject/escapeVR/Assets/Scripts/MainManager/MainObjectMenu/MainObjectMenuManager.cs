@@ -92,14 +92,20 @@ public class MainObjectMenuManager : MonoBehaviour {
 	// メニューを画面に表示させたり外したりするメソッド
 	public void moveToScreen(bool to){
 		ObjectMover om = this.GetComponent<ObjectMover> ();
+		bool onScreen;
 		if (to) {
 			Transform cameraTransform = Camera.main.transform;
 			this.transform.eulerAngles = cameraTransform.eulerAngles;
+			onScreen = true;
 			Debug.Log ("move menu in Camera");
 			om.startMoving (inCamera);
 		} else {
 			Debug.Log ("move menu out Camera");
+			onScreen = false;
 			om.startMoving (outCamera);
+		}
+		for (int i = 0; i < frameList.Count; i++) {
+			frameList [i].GetComponent<MainObjectMenuFrame> ().onScreen = onScreen;
 		}
 	}
 
