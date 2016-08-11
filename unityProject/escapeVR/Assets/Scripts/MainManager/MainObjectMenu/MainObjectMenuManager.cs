@@ -69,12 +69,10 @@ public class MainObjectMenuManager : MonoBehaviour {
 	}
 
 	// セレクトされてるアイテムの詳細を表示する
-	public void showObjectsDetail(bool pushed){
+	public void showObjectsDetail(int objectType){
 		for (int i = 0; i < frameList.Count; i++) {
 			MainObjectMenuFrame tmp = frameList[i].GetComponent<MainObjectMenuFrame> ();
-			if (tmp.objectType == selectedObjectType) {
-				tmp.showDetail (pushed);
-			}
+			tmp.showDetail (tmp.objectType == selectedObjectType); //frameにないものを戻して選択されたものを詳細欄に送る
 		}
 	}
 

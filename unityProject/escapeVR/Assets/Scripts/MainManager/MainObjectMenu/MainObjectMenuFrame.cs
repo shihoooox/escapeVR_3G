@@ -5,14 +5,14 @@ using System;
 public class MainObjectMenuFrame : MonoBehaviour {
 
 	public GameObject childObject;
-	public GameObject detailPos; //詳細位置
+	public GameObject detailPos; //詳細位置 -C
 	public bool isSelected; //ユーザが選択しているかどうか
 	public bool onScreen; //これが画面に出ているかどうか
 	public bool isActive; //これが表示されているかどうか
 	public bool isInsideFrame; //フレームの中にいるかどうか
 	public int objectType; //オブジェクト固有の番号
 	private Color originalColor;
-	public Transform baseChildPos; //-C
+	private Transform baseChildPos; //-C
 
 	// Use this for initialization
 	void Start () {
@@ -39,8 +39,17 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	//===↓ Start, Update以外のすべてのメソッドの宣言の前に、フィールド変数のように「public」をつけてください。===
 	public void showDetail(bool b){
 		if(childObject.GetComponent<MainObjectMenuInstance>() != null){
-			MainObjectMenuInstance child = childObject.GetComponent<MainObjectMenuInstance>();
-			child.moveDetailPos (b);
+			ObjectMover om = this.GetComponent<ObjectMover> ();
+			if (b) { //falseなら
+				om.startMoving (childObject, detailPos); //移動開始
+				isInsideFrame = false;// frameの外なので
+			} else {
+				GameObject pos = new GameObject (); //アイテムを枠の中に戻すためにGameObject作成
+				pos.transform.position = baseChildPos.position; //位置代入
+				pos.transform.rotation = baseChildPos.rotation; //回転角度代入
+				om.startMoving (childObject, pos); //移動開始
+				isInsideFrame = true;
+			}
 		}
 	}
 
@@ -54,11 +63,8 @@ public class MainObjectMenuFrame : MonoBehaviour {
 
 	//選択されていることを可視化する処理
 	public void selectedMotion(bool selected){
-		//===無駄な処理回避のため、すでにtoとonScreenが同じであれば処理をしない条件分岐を作成してください。(*1のような処理)===
 		if (isSelected != selected) {
-			Debug.Log ("selectedMotion " + selected);
 			if (selected) {
-				Debug.Log ("a");
 				Color c = Color.red;
 				c.a = 0.6f;
 				GetComponent<Renderer> ().material.SetColor ("_Color", c);
@@ -67,7 +73,6 @@ public class MainObjectMenuFrame : MonoBehaviour {
 			}
 			isSelected = selected;
 		}
-		//Debug.Log("未完成です");
 
 	}
 

@@ -70,6 +70,19 @@ public class ObjectMover : MonoBehaviour
 		moving = trigger;
 	}
 
+	public void startMoving(GameObject me,  GameObject targ) {//ターゲットになっている座標から現在、紐付けされている座標の差をとる
+
+		target = targ;
+		movedObject = me;
+		duration = 0;
+		diff = target.transform.position - movedObject.transform.position;
+		//現在、紐付けされている座標を初期値とする
+		initPos = movedObject.transform.position;
+
+		trigger = true;
+		moving = trigger;
+	}
+
 	void movingUpdate() {
 
 		int moveType = 0;

@@ -32,7 +32,11 @@ public class MainManager : MonoBehaviour {
 					MainObjectMenuManager manager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
 					type = frame.objectType;
 					if (type > 0) {
-						manager.indicateSelected (type);
+						if (!frame.isSelected) {
+							manager.indicateSelected (type);
+						} else {
+							manager.showObjectsDetail (type);
+						}
 					}
 				}
 			}
