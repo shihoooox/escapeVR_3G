@@ -24,7 +24,7 @@ public class MainObjectMenuManager : MonoBehaviour {
 		frameList.Add (tmp5);
 
 		selectedObjectType = -1;
-		Debug.Log ("未完成です");
+		Debug.Log ("MainObjectMenuManagerは未完成です");
 
 	}
 	
