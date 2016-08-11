@@ -21,7 +21,6 @@ public class MainManager : MonoBehaviour {
 
 		//key: P (Pキーを押すと選択される処理)
 		if (Input.GetKeyDown (KeyCode.P)) {
-			Debug.Log ("P_key pressed");
 			Vector3 pos = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 			Ray ray = Camera.main.ScreenPointToRay (pos);
 			RaycastHit hit;
@@ -31,6 +30,7 @@ public class MainManager : MonoBehaviour {
 					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
 					MainObjectMenuManager manager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
 					type = frame.objectType;
+					Debug.Log ("P_key pressed, hit type : " + type);
 					if (type > 0) {
 						if (!frame.isSelected) {
 							manager.indicateSelected (type);

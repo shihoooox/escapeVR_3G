@@ -12,15 +12,20 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	public bool isInsideFrame; //フレームの中にいるかどうか
 	public int objectType; //オブジェクト固有の番号
 	private Color originalColor;
-	private Transform baseChildPos; //-C
+	private GameObject baseChildPos; //-C
 
 	// Use this for initialization
 	void Start () {
 		isSelected = false;
 		onScreen = false;
 		isActive = false;
+		isInsideFrame = true;
 		originalColor = GetComponent<Renderer> ().material.color;
-		baseChildPos = childObject.transform; //子オブジェクトのtransformを保存
+
+		//子オブジェクトのtransformを保存
+		baseChildPos = new GameObject (); 
+		baseChildPos.transform.position = childObject.transform.position; 
+		baseChildPos.transform.rotation = childObject.transform.rotation;
 	}
 	
 	// Update is called once per frame
@@ -40,14 +45,15 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	public void showDetail(bool b){
 		if(childObject.GetComponent<MainObjectMenuInstance>() != null){
 			ObjectMover om = this.GetComponent<ObjectMover> ();
-			if (b) { //falseなら
+			if (b) { //trueならframeの外へ
+				Debug.Log ("ToOutSideFrame: " + objectType);
 				om.startMoving (childObject, detailPos); //移動開始
 				isInsideFrame = false;// frameの外なので
-			} else {
-				GameObject pos = new GameObject (); //アイテムを枠の中に戻すためにGameObject作成
-				pos.transform.position = baseChildPos.position; //位置代入
-				pos.transform.rotation = baseChildPos.rotation; //回転角度代入
-				om.startMoving (childObject, pos); //移動開始
+			} else { //falseならframeの中へ
+				Debug.Log ("ToInsideFrame: " + objectType);
+				baseChildPos.transform.position = this.transform.position;
+				//baseChildPos.transform.localPosition.y += -3f;
+				om.startMoving (childObject, baseChildPos); //移動開始
 				isInsideFrame = true;
 			}
 		}

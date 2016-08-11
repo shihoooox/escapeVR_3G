@@ -64,15 +64,18 @@ public class MainObjectMenuManager : MonoBehaviour {
 			tmp.selectedMotion(tmp.objectType == objectType);
 		}
 		if(selectedObjectType != objectType) {
-			selectedObjectType = objectType;
+			selectedObjectType = objectType; //selectedObjectType更新
 		}
 	}
 
 	// セレクトされてるアイテムの詳細を表示する
 	public void showObjectsDetail(int objectType){
+		Debug.Log ("Called showObjectsDetail with type : " + objectType);
+		Debug.Log ("Selected Object is : " + selectedObjectType);
 		for (int i = 0; i < frameList.Count; i++) {
-			MainObjectMenuFrame tmp = frameList[i].GetComponent<MainObjectMenuFrame> ();
-			tmp.showDetail (tmp.objectType == selectedObjectType); //frameにないものを戻して選択されたものを詳細欄に送る
+			MainObjectMenuFrame frame = frameList[i].GetComponent<MainObjectMenuFrame> ();
+			if(frame.objectType == objectType || !frame.isInsideFrame) 
+				frame.showDetail (frame.objectType == selectedObjectType); //frameにないものを戻して選択されたものを詳細欄に送る
 		}
 	}
 
