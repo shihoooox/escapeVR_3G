@@ -21,11 +21,14 @@ public class MainObjectMenuFrame : MonoBehaviour {
 		isActive = false;
 		isInsideFrame = true;
 		originalColor = GetComponent<Renderer> ().material.color;
+		childObject.transform.position = this.transform.position;
+		childObject.transform.position += this.transform.up * -0.06f;
 
 		//子オブジェクトのtransformを保存
 		baseChildPos = new GameObject (); 
-		baseChildPos.transform.position = childObject.transform.position; 
-		baseChildPos.transform.rotation = childObject.transform.rotation;
+		baseChildPos.transform.position = this.transform.position;
+		baseChildPos.transform.position += this.transform.up * -0.06f;
+		baseChildPos.transform.rotation = this.transform.rotation;
 	}
 	
 	// Update is called once per frame
@@ -52,7 +55,8 @@ public class MainObjectMenuFrame : MonoBehaviour {
 			} else { //falseならframeの中へ
 				Debug.Log ("ToInsideFrame: " + objectType);
 				baseChildPos.transform.position = this.transform.position;
-				//baseChildPos.transform.localPosition.y += -3f;
+				baseChildPos.transform.position += this.transform.up * -0.06f;
+				baseChildPos.transform.rotation = this.transform.rotation;
 				om.startMoving (childObject, baseChildPos); //移動開始
 				isInsideFrame = true;
 			}
