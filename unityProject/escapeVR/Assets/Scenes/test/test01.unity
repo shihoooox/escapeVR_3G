@@ -1649,6 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc8da27b3559401db6bb2401ca99827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   childObject: {fileID: 528240163}
   detailPos: {fileID: 0}
   isSelected: 0
@@ -1669,6 +1670,18 @@ MonoBehaviour:
 --- !u!23 &357523287
 >>>>>>> e60ae84e56e8bd585fe453f6cee52a925dbb6a82
 MeshRenderer:
+=======
+  inCamera: {fileID: 1583251213}
+  outCamera: {fileID: 1938149816}
+  tmp1: {fileID: 52295920}
+  tmp2: {fileID: 1327249777}
+  tmp3: {fileID: 203115064}
+  tmp4: {fileID: 164886997}
+  tmp5: {fileID: 1682267217}
+  frameList: []
+--- !u!114 &603226869
+MonoBehaviour:
+>>>>>>> e453ec880a4f77d05d72cb3024dbab89016974fc
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1678,6 +1691,7 @@ MeshRenderer:
   m_GameObject: {fileID: 357523284}
 >>>>>>> e60ae84e56e8bd585fe453f6cee52a925dbb6a82
   m_Enabled: 1
+<<<<<<< HEAD
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -1772,6 +1786,18 @@ GameObject:
 =======
 --- !u!4 &376508607
 >>>>>>> e60ae84e56e8bd585fe453f6cee52a925dbb6a82
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418722ad61b78494ea1f52fae9b89135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputTar: {fileID: 1938149816}
+  movedObject: {fileID: 603226867}
+  T0: 0.5
+  trigger: 0
+  easingFunction: 3
+--- !u!4 &603226870
+>>>>>>> e453ec880a4f77d05d72cb3024dbab89016974fc
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
