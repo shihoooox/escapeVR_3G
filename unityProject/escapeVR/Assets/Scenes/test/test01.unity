@@ -588,7 +588,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 0
+  objectType: 103
 --- !u!1 &147730138
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 1584168717}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 1952432278}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 0
+  objectType: 102
 --- !u!1 &342645194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 158184829}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 1358732067}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -2475,7 +2475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 1877277322}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -3026,7 +3026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 376508606}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -3212,7 +3212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 79677464}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -3336,7 +3336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 1171463556}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -3432,7 +3432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 646066817}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -3605,7 +3605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 1453450130}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -3928,7 +3928,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 0
+  objectType: 105
 --- !u!1 &1453450130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,7 +4064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 561370694}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -4341,7 +4341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 415941488}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -4482,7 +4482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 118166087}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -4803,7 +4803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 1816322219}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -5190,7 +5190,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 0
+  objectType: 104
 --- !u!1 &1816322219
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,7 +5416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childObject: {fileID: 242245232}
-  detailPos: {fileID: 0}
+  detailPos: {fileID: 716211080}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -5930,7 +5930,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 0
+  objectType: 101
 --- !u!1 &2137162255
 GameObject:
   m_ObjectHideFlags: 0

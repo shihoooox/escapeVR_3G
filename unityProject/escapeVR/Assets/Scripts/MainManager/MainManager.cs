@@ -33,14 +33,16 @@ public class MainManager : MonoBehaviour {
 				int type = -1; //衝突したobjectType
 				if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
 					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
-					MainObjectMenuManager manager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager>();
 					type = frame.objectType;
 					Debug.Log ("P_key pressed, hit type : " + type);
 					if (type > 0) {
 						if (!frame.isSelected) {
-							manager.indicateSelected (type);
+							MomManager.indicateSelected (type);
+							SomManager.indicateSelected (type+100);
 						} else {
-							manager.showObjectsDetail (type);
+							MomManager.showObjectsDetail (type);
 						}
 					}
 				}

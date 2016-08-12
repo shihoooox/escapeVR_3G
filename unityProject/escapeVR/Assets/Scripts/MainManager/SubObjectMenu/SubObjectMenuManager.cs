@@ -40,6 +40,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 			if (tmp.objectType == objectType) {
 				tmp.appear(true);
 			}
+			tmp.isActive = tmp.objectType == objectType;
 		}
 	}
 
@@ -50,6 +51,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 			if (tmp.objectType == objectType) {
 				tmp.appear(false);
 			}
+			tmp.isActive = tmp.objectType == objectType;
 		}
 	}
 
@@ -60,9 +62,10 @@ public class SubObjectMenuManager : MonoBehaviour {
 
 	// アイテムを全部デセレクトしてからobjectTypeのアイテムをセレクトする。
 	public void indicateSelected(int objectType){
+		Debug.Log ("called sub selectedMotion with type : " + objectType);
 		for (int i = 0; i < frameList.Count; i++) {
 			SubObjectMenuFrame tmp = frameList[i].GetComponent<SubObjectMenuFrame> ();
-			tmp.selected(tmp.objectType == objectType);
+			tmp.selectedMotion (tmp.objectType == objectType);
 		}
 		if(selectedObjectType != objectType){
 			selectedObjectType = objectType;
