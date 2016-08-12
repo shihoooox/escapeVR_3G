@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childObject: {fileID: 0}
+  childObject: {fileID: 1101070033}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childObject: {fileID: 0}
+  childObject: {fileID: 849498556}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -2303,6 +2303,7 @@ Transform:
   - {fileID: 1677075617}
   - {fileID: 1500073238}
   - {fileID: 1231674849}
+  - {fileID: 2048007301}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &716211080
@@ -2876,7 +2877,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1010586278}
-  - {fileID: 2048007301}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1073713409
@@ -2891,6 +2891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainObjectMenuManager_G: {fileID: 1010586277}
+  SubObjectMenuManager_G: {fileID: 2048007300}
 --- !u!1 &1101070033
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,7 +3285,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1231674848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.050000004, y: 0.100000024, z: 0.561}
+  m_LocalPosition: {x: -0.15, y: 0.632, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -3923,7 +3924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childObject: {fileID: 0}
+  childObject: {fileID: 1387591377}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -5185,7 +5186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childObject: {fileID: 0}
+  childObject: {fileID: 1635972025}
   isSelected: 0
   onScreen: 0
   isActive: 0
@@ -5608,7 +5609,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2048007300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0.95, z: 0.3}
+  m_LocalPosition: {x: -0.15, y: -0.050000012, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -5627,8 +5628,8 @@ Transform:
   - {fileID: 686555190}
   - {fileID: 1544728422}
   - {fileID: 617834465}
-  m_Father: {fileID: 1073713408}
-  m_RootOrder: 1
+  m_Father: {fileID: 690774740}
+  m_RootOrder: 5
 --- !u!114 &2048007302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5640,11 +5641,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418722ad61b78494ea1f52fae9b89135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputTar: {fileID: 0}
-  movedObject: {fileID: 0}
-  T0: 0
+  inputTar: {fileID: 1231674848}
+  movedObject: {fileID: 2048007300}
+  T0: 0.5
   trigger: 0
-  easingFunction: 0
+  easingFunction: 3
 --- !u!114 &2048007303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5925,7 +5926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childObject: {fileID: 0}
+  childObject: {fileID: 2137162255}
   isSelected: 0
   onScreen: 0
   isActive: 0

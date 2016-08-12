@@ -98,10 +98,10 @@ public class MainObjectMenuManager : MonoBehaviour {
 			Transform cameraTransform = Camera.main.transform;
 			this.transform.eulerAngles = cameraTransform.eulerAngles;
 			onScreen = true;
-			Debug.Log ("move menu in Camera");
+			//Debug.Log ("move menu in Camera");
 			om.startMoving (inCamera);
 		} else {
-			Debug.Log ("move menu out Camera");
+			//Debug.Log ("move menu out Camera");
 			onScreen = false;
 			om.startMoving (outCamera);
 		}

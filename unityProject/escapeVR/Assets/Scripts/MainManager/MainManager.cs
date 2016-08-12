@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MainManager : MonoBehaviour {
 	public GameObject MainObjectMenuManager_G; //MainObjectMenuManagerのGameObject
+	public GameObject SubObjectMenuManager_G; //SubObjectMenuManagerのGameObject
 	// Use this for initialization
 	void Start () {
 		
@@ -13,10 +14,14 @@ public class MainManager : MonoBehaviour {
 		//key: Q (Qキーを押すとメニューが出て話すと上に消える処理)
 		if (Input.GetKeyDown (KeyCode.Q)) {
 			MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ();
+			SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
 			MomManager.moveToScreen (true);
+			SomManager.moveToScreen (true);
 		} else if (Input.GetKeyUp (KeyCode.Q)) {
 			MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ();
+			SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
 			MomManager.moveToScreen (false);
+			SomManager.moveToScreen (false);
 		}
 
 		//key: P (Pキーを押すと選択される処理)
@@ -27,15 +32,15 @@ public class MainManager : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, 100.0f)) {
 				int type = -1; //衝突したobjectType
 				if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
-					MainObjectMenuFrame mainFrame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
-					MainObjectMenuManager mainManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
-					type = mainFrame.objectType;
+					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
+					MainObjectMenuManager manager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					type = frame.objectType;
 					Debug.Log ("P_key pressed, hit type : " + type);
 					if (type > 0) {
-						if (!mainFrame.isSelected) {
-							mainManager.indicateSelected (type);
+						if (!frame.isSelected) {
+							manager.indicateSelected (type);
 						} else {
-							mainManager.showObjectsDetail (type);
+							manager.showObjectsDetail (type);
 						}
 					}
 				}

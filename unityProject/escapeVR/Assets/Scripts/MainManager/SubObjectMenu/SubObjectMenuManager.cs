@@ -29,8 +29,8 @@ public class SubObjectMenuManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.position = inCamera.transform.position;
-		this.transform.eulerAngles = inCamera.transform.eulerAngles;
+		//this.transform.position = inCamera.transform.position;
+		//this.transform.eulerAngles = inCamera.transform.eulerAngles;
 	}
 
 	// メニューのオブジェクトを表示させる(アイテムを取ったことにする)
@@ -72,7 +72,8 @@ public class SubObjectMenuManager : MonoBehaviour {
 	//メニューを表示させたり外したりするメソッド
 	public void moveToScreen(bool to) { //mainObjectMenuManager
 		ObjectMover om = this.GetComponent<ObjectMover> ();
-		bool onScreen = false;
+		Debug.Log ("moving " + to);
+		bool onScreen; //frameのonScreen更新用
 		if (to) {
 			om.startMoving (outCamera);
 			onScreen = false;
@@ -81,7 +82,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 			onScreen = true;
 		}
 		for (int i = 0; i < frameList.Count; i++) {
-			frameList [i].GetComponent<MainObjectMenuFrame> ().onScreen = onScreen;
+			frameList [i].GetComponent<SubObjectMenuFrame> ().onScreen = onScreen;
 		}
 	}
 
