@@ -23,7 +23,7 @@ public class SubObjectMenuFrame : MonoBehaviour {
 
 
 	//選択されていることを可視化する処理
-	public void selected(bool selected){
+	public void selectedMotion(bool selected){
 		if(isSelected != selected){
 			isSelected = selected;
 			//ここに処理を書く
