@@ -584,6 +584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childObject: {fileID: 1101070033}
+  isSelected: 0
+  onScreen: 0
+  isActive: 0
+  objectType: 3
 --- !u!1 &147730138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1265,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childObject: {fileID: 849498556}
+  isSelected: 0
+  onScreen: 0
+  isActive: 0
+  objectType: 2
 --- !u!1 &342645194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,6 +2679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a6c4446b32d4f25b949aea18a63b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePos: {x: 0, y: 0, z: 0}
 --- !u!1 &982579751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,9 +2835,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputTar: {fileID: 1583251213}
   movedObject: {fileID: 1010586277}
-  T0: 0.5
+  T0: 0.4
   trigger: 0
-  easingFunction: 1
+  easingFunction: 2
 --- !u!1 &1073713407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,6 +2880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainObjectMenuManager_G: {fileID: 1010586277}
+  SubObjectMenuManager_G: {fileID: 2048007300}
 --- !u!1 &1101070033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,6 +2969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a6c4446b32d4f25b949aea18a63b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1109434853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,6 +3857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a6c4446b32d4f25b949aea18a63b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1439342537
 GameObject:
   m_ObjectHideFlags: 0
@@ -3933,6 +3947,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childObject: {fileID: 1387591377}
+  isSelected: 0
+  onScreen: 0
+  isActive: 0
+  objectType: 5
 --- !u!1 &1453450130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,6 +4982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a6c4446b32d4f25b949aea18a63b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1671165502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,6 +5226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childObject: {fileID: 1635972025}
+  isSelected: 0
+  onScreen: 0
+  isActive: 0
+  objectType: 4
 --- !u!1 &1816322219
 GameObject:
   m_ObjectHideFlags: 0
@@ -5675,9 +5700,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputTar: {fileID: 1231674848}
   movedObject: {fileID: 2048007300}
-  T0: 0.5
+  T0: 0.4
   trigger: 0
-  easingFunction: 3
+  easingFunction: 2
 --- !u!114 &2048007303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5689,6 +5714,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e66c58c9bd2f4f83915b7217c37f557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inCamera: {fileID: 1500073237}
+  outCamera: {fileID: 1231674848}
+  tmp1: {fileID: 2128047869}
+  tmp2: {fileID: 257868813}
+  tmp3: {fileID: 142608391}
+  tmp4: {fileID: 1734584827}
+  tmp5: {fileID: 1439342537}
+  frameList: []
 --- !u!1 &2074311548
 GameObject:
   m_ObjectHideFlags: 0
@@ -5950,6 +5983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6507d2ab4bfc428ba35de7d1096ef9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childObject: {fileID: 2137162255}
+  isSelected: 0
+  onScreen: 0
+  isActive: 0
+  objectType: 1
 --- !u!1 &2137162255
 GameObject:
   m_ObjectHideFlags: 0
@@ -6038,6 +6076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a6c4446b32d4f25b949aea18a63b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homePos: {x: 0, y: 0, z: 0}
 --- !u!1 &2138428338
 GameObject:
   m_ObjectHideFlags: 0
