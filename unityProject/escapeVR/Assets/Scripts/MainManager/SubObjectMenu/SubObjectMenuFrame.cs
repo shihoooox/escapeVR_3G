@@ -18,8 +18,7 @@ public class SubObjectMenuFrame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		SubObjectMenuInstance tmp = childObject.GetComponent<SubObjectMenuInstance> ();
-		tmp.homePos = this.transform.position; //Frameはマスターの子オブジェクトなので位置を合わせる必要なし
+		
 	}
 
 

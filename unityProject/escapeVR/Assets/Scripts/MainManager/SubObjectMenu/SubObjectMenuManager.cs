@@ -67,4 +67,8 @@ public class SubObjectMenuManager : MonoBehaviour {
 		}
 	}
 
+	public void moveToScreen() {
+
+	}
+
 }
