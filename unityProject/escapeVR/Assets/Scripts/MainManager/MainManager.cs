@@ -27,15 +27,15 @@ public class MainManager : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, 100.0f)) {
 				int type = -1; //衝突したobjectType
 				if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
-					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
-					MainObjectMenuManager manager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
-					type = frame.objectType;
+					MainObjectMenuFrame mainFrame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
+					MainObjectMenuManager mainManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					type = mainFrame.objectType;
 					Debug.Log ("P_key pressed, hit type : " + type);
 					if (type > 0) {
-						if (!frame.isSelected) {
-							manager.indicateSelected (type);
+						if (!mainFrame.isSelected) {
+							mainManager.indicateSelected (type);
 						} else {
-							manager.showObjectsDetail (type);
+							mainManager.showObjectsDetail (type);
 						}
 					}
 				}

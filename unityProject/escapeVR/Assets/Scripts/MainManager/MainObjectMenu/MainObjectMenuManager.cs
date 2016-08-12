@@ -93,7 +93,7 @@ public class MainObjectMenuManager : MonoBehaviour {
 	// メニューを画面に表示させたり外したりするメソッド
 	public void moveToScreen(bool to){
 		ObjectMover om = this.GetComponent<ObjectMover> ();
-		bool onScreen;
+		bool onScreen; //frameのonScreenの更新用
 		if (to) {
 			Transform cameraTransform = Camera.main.transform;
 			this.transform.eulerAngles = cameraTransform.eulerAngles;

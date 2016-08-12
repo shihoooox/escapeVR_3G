@@ -4,7 +4,6 @@ using System;
 
 public class SubObjectMenuInstance : MonoBehaviour {
 
-	public String description;
 	public Vector3 homePos;
 	private bool nowPos;
 	private bool changePos;
