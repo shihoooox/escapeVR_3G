@@ -466,7 +466,7 @@ PlayerSettings:
   PSM::VR::enable: 0
   PSP2::VR::enable: 0
   SamsungTV::VR::enable: 0
-  Standalone::VR::enable: 1
+  Standalone::VR::enable: 0
   Tizen::VR::enable: 0
   WebGL::VR::enable: 0
   WebGL::analyzeBuildSize: 0
@@ -542,7 +542,7 @@ PlayerSettings:
   XboxOne::VR::enabledDevices: []
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: 416aa529-9657-4399-955b-ca31b9c97aeb
+  projectName: escapeVR
+  organizationId: aaaaaepp1
   cloudEnabled: 0

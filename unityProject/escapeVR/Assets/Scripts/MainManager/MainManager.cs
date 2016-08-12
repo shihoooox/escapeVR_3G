@@ -32,7 +32,7 @@ public class MainManager : MonoBehaviour {
 
 
 		//key: P (Pキーを押すと選択される処理)
-		if (Input.GetKeyDown (KeyCode.P)) {
+		if (Input.GetKeyDown (KeyCode.W)) {
 			Vector3 pos = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 			Ray ray = Camera.main.ScreenPointToRay (pos);
 			RaycastHit hit;

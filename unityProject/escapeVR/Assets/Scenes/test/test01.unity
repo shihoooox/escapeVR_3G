@@ -1358,8 +1358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2505a05cfcafc466aa641aa81bb9e8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inCamera: {fileID: 0}
-  outCamera: {fileID: 0}
+  inCamera: {fileID: 1583251213}
+  outCamera: {fileID: 1938149816}
   tmp1: {fileID: 52295920}
   tmp2: {fileID: 1327249777}
   tmp3: {fileID: 203115064}
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418722ad61b78494ea1f52fae9b89135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputTar: {fileID: 0}
+  inputTar: {fileID: 1938149816}
   movedObject: {fileID: 603226867}
   T0: 0.5
   trigger: 0
