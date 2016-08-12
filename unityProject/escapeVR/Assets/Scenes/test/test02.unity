@@ -588,7 +588,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 3
+  objectType: 103
 --- !u!1 &147730138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1269,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 2
+  objectType: 102
 --- !u!1 &342645194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,7 +3951,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 5
+  objectType: 105
 --- !u!1 &1453450130
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,7 +5230,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 4
+  objectType: 104
 --- !u!1 &1816322219
 GameObject:
   m_ObjectHideFlags: 0
@@ -5987,7 +5987,7 @@ MonoBehaviour:
   isSelected: 0
   onScreen: 0
   isActive: 0
-  objectType: 1
+  objectType: 101
 --- !u!1 &2137162255
 GameObject:
   m_ObjectHideFlags: 0
