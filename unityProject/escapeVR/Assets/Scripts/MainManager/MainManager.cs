@@ -4,6 +4,7 @@ using System.Collections;
 
 public class MainManager : MonoBehaviour {
 	public GameObject MainObjectMenuManager_G; //MainObjectMenuManagerのGameObject
+	public GameObject SubObjectMenuManager_G; //SubObjectMenuManagerのGameObject
 	// Use this for initialization
 	void Start () {
 		
@@ -14,10 +15,14 @@ public class MainManager : MonoBehaviour {
 		//key: Q (Qキーを押すとメニューが出て話すと上に消える処理)
 		if (Input.GetKeyDown (KeyCode.Q)) {
 			MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ();
+			SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
 			MomManager.moveToScreen (true);
+			SomManager.moveToScreen (true);
 		} else if (Input.GetKeyUp (KeyCode.Q)) {
 			MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ();
+			SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
 			MomManager.moveToScreen (false);
+			SomManager.moveToScreen (false);
 		}
 
 
@@ -40,14 +45,16 @@ public class MainManager : MonoBehaviour {
 				int type = -1; //衝突したobjectType
 				if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
 					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
-					MainObjectMenuManager manager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager>();
 					type = frame.objectType;
 					Debug.Log ("P_key pressed, hit type : " + type);
 					if (type > 0) {
 						if (!frame.isSelected) {
-							manager.indicateSelected (type);
+							MomManager.indicateSelected (type);
+							SomManager.indicateSelected (type+100);
 						} else {
-							manager.showObjectsDetail (type);
+							MomManager.showObjectsDetail (type);
 						}
 					}
 				}
