@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
 /*
  * このコンポーネントに紐付けしたゲームオブジェクトに対してイージングを行う.
@@ -17,29 +16,36 @@ public class ObjectMover : MonoBehaviour
 		EaseInOutQuad//だんだん速くなってだんだん遅くなる(moveType1に相当)
 	}
 
-	public GameObject target;//移動する先のオブジェクトを指定
+	public GameObject inputTar;//移動する先のオブジェクトのインスペクタ指定
 	public GameObject movedObject;
 	public float T0;//移動する時間を指定
 	public bool trigger;//trueでイージング発動する.イージングが終わると、falseになる.
 	public EasingFunction easingFunction;//イージング関数のタイプ
 
-
+	private GameObject target;//移動する先のオブジェクトを指定
 	private float duration;//nowTime(s)
 	private Vector3 diff;//ターゲットとの距離ベクトル
 	private Vector3 initPos;//イージング前のこのゲームオブジェクトの初期位置
 	private bool inOutSwitch;//InOutを行うための真ん中切り替え(falseならIn、trueならOut中)
 	private float tempDuration;//InOutのOutからのduration
 
+	private bool moving;//動くかどうかを制御する
+
 	// Use this for initialization
 	void Start()
 	{
 		duration = 0;
-
+		target = inputTar;
 		//ターゲットになっている座標から現在、紐付けされている座標の差をとる
 		diff = target.transform.position - movedObject.transform.position;
 
 		//現在、紐付けされている座標を初期値とする
 		initPos = movedObject.transform.position;
+
+
+		//movingをfalseに
+		moving = false;
+		//startMoving (target, movedObject, T0, easingFunction);
 
 		//Debug.Log(diff);
 	}
@@ -47,7 +53,38 @@ public class ObjectMover : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
+		if (moving) {
+			movingUpdate ();
+		}
+	}
+
+	public void startMoving(GameObject targ) {//ターゲットになっている座標から現在、紐付けされている座標の差をとる
+
+		target = targ;
+		duration = 0;
+		diff = target.transform.position - movedObject.transform.position;
+		//現在、紐付けされている座標を初期値とする
+		initPos = movedObject.transform.position;
+
+		trigger = true;
+		moving = trigger;
+	}
+
+	public void startMoving(GameObject me,  GameObject targ) {//ターゲットになっている座標から現在、紐付けされている座標の差をとる
+
+		target = targ;
+		movedObject = me;
+		duration = 0;
+		diff = target.transform.position - movedObject.transform.position;
+		//現在、紐付けされている座標を初期値とする
+		initPos = movedObject.transform.position;
+
+		trigger = true;
+		moving = trigger;
+	}
+
+	void movingUpdate() {
+
 		int moveType = 0;
 
 		switch (easingFunction) {
@@ -66,8 +103,9 @@ public class ObjectMover : MonoBehaviour
 			moveType = 1;
 			break;
 		}
-
+		bool pastTrigger = trigger;
 		moveObject(movedObject,target.transform,moveType,T0);//velocity(1flame)
+		if(pastTrigger != trigger) moving = false;
 	}
 
 
