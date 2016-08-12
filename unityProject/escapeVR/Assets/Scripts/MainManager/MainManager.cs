@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.VR;
 using System.Collections;
 
 public class MainManager : MonoBehaviour {
@@ -18,6 +19,17 @@ public class MainManager : MonoBehaviour {
 			MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ();
 			MomManager.moveToScreen (false);
 		}
+
+
+		//debug
+		Vector3 pos_ = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
+		Ray ray_ = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
+		RaycastHit hit_;
+		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
+			GameObject tmp = hit_.collider.gameObject;
+			Debug.Log (tmp.name + " " + tmp.transform.position);
+		}
+
 
 		//key: P (Pキーを押すと選択される処理)
 		if (Input.GetKeyDown (KeyCode.P)) {
