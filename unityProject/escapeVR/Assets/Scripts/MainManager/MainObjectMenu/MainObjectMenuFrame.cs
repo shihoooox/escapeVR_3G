@@ -64,6 +64,12 @@ public class MainObjectMenuFrame : MonoBehaviour {
 
 		}
 
+		if (!isInsideFrame) {
+			childObject.transform.Rotate (Time.deltaTime * 30f, Time.deltaTime * 30f, 0);
+		} else {
+			childObject.transform.rotation = baseChildPos.transform.rotation;
+		}
+
 	}
 
 	//子オブジェクトであるchildObjectを説明欄へ移動させたりもどしたりするメソッド ←仕様書のメソッドの働きを書いてください。===
