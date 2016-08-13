@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MainObjectMenuFrame
+  - Point
   layers:
   - Default
   - TransparentFX
