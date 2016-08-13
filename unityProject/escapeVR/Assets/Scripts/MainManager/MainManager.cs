@@ -5,6 +5,7 @@ using System.Collections;
 public class MainManager : MonoBehaviour {
 	public GameObject MainObjectMenuManager_G; //MainObjectMenuManagerのGameObject
 	public GameObject SubObjectMenuManager_G; //SubObjectMenuManagerのGameObject
+	public GameObject MarkerManager_G; //MarkerManagerのGameObject
 	// Use this for initialization
 	void Start () {
 		
@@ -24,17 +25,15 @@ public class MainManager : MonoBehaviour {
 			MomManager.moveToScreen (false);
 			SomManager.moveToScreen (false);
 		}
-
-		/*
+		
 		//debug
 		Vector3 pos_ = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 		Ray ray_ = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit_;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
 			GameObject tmp = hit_.collider.gameObject;
-			Debug.Log (tmp.name + " " + tmp.transform.position);
+			//Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
 		}
-		*/
 
 		//key: W (Wキーを押すと選択される処理)
 		if (Input.GetKeyDown (KeyCode.W)) {
@@ -44,6 +43,8 @@ public class MainManager : MonoBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit, 100.0f)) {
 				int type = -1; //衝突したobjectType
+
+				//hitしたのがMainObjectMenu系なら
 				if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
 					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
 					MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
@@ -58,6 +59,14 @@ public class MainManager : MonoBehaviour {
 							MomManager.showObjectsDetail (type);
 						}
 					}
+				} 
+				//hitしたのがMarkerなら
+				else if(hit.collider.gameObject.tag == "Marker") {
+					MarkerInstance instance = hit.collider.gameObject.GetComponent<MarkerInstance> ();
+					MarkerManager manager =  MarkerManager_G.GetComponent<MarkerManager> ();
+					type = instance.objectType;
+					Debug.Log("move to " + type);
+					manager.moveTo (type);
 				}
 			}
 		}
