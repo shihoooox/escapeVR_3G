@@ -32,7 +32,7 @@ public class MainManager : MonoBehaviour {
 		RaycastHit hit_;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
 			GameObject tmp = hit_.collider.gameObject;
-			//Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
+			Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
 		}
 
 		//key: W (Wキーを押すと選択される処理)
@@ -59,7 +59,7 @@ public class MainManager : MonoBehaviour {
 							MomManager.showObjectsDetail (type);
 						}
 					}
-				} 
+				}
 				//hitしたのがMarkerなら
 				else if(hit.collider.gameObject.tag == "Marker") {
 					MarkerInstance instance = hit.collider.gameObject.GetComponent<MarkerInstance> ();
