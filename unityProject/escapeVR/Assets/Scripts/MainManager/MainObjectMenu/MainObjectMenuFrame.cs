@@ -13,6 +13,7 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	public int objectType; //オブジェクト固有の番号
 	private Color originalColor;
 	private GameObject baseChildPos; //-C
+	private bool scaling;
 
 	// Use this for initialization
 	void Start () {
@@ -21,14 +22,20 @@ public class MainObjectMenuFrame : MonoBehaviour {
 		isActive = false;
 		isInsideFrame = true;
 		originalColor = GetComponent<Renderer> ().material.color;
-		childObject.transform.position = this.transform.position;
-		childObject.transform.position += this.transform.up * -0.06f;
+		scaling = false;
+		baseChildPos = new GameObject (); //こオブジェクトを保存するgameobject作成
 
-		//子オブジェクトのtransformを保存
-		baseChildPos = new GameObject (); 
-		baseChildPos.transform.position = this.transform.position;
-		baseChildPos.transform.position += this.transform.up * -0.06f;
-		baseChildPos.transform.rotation = this.transform.rotation;
+		if (objectType == -1) {
+			baseChildPos.transform.position = childObject.transform.position;
+			baseChildPos.transform.rotation = childObject.transform.rotation;
+		} else {
+			childObject.transform.position = this.transform.position;
+			childObject.transform.position += this.transform.up * -0.06f;
+			//子オブジェクトのtransformを保存
+			baseChildPos.transform.position = this.transform.position;
+			baseChildPos.transform.position += this.transform.up * -0.06f;
+			baseChildPos.transform.rotation = this.transform.rotation;
+		}
 	}
 	
 	// Update is called once per frame
@@ -40,6 +47,22 @@ public class MainObjectMenuFrame : MonoBehaviour {
 			//Debug.Log ("ぬるぽ"); //上の代入処理でぬるぽになるのを解決する必要がある。
 		}
 
+		if (scaling) {
+			Vector3 deltaScale = new Vector3 (100, 100, 100) * Time.deltaTime; //1秒で100だけ大きくなるベクトル
+			if(isInsideFrame) deltaScale *= -1; //フレームに入る向きならベクトルを反転
+
+			childObject.transform.localScale += deltaScale;
+
+			//スケール終了条件を満たしたら終了
+			if (isInsideFrame && childObject.transform.localScale.x <= 7f) {
+				scaling = false;
+				childObject.transform.localScale = new Vector3(7f, 7f, 7f);
+			} else if (!isInsideFrame && childObject.transform.localScale.x >= 20f) {
+				scaling = false;
+				childObject.transform.localScale = new Vector3(20f, 20f, 20f);
+			}
+
+		}
 
 	}
 
@@ -48,6 +71,7 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	public void showDetail(bool b){
 		if(childObject.GetComponent<MainObjectMenuInstance>() != null){
 			ObjectMover om = this.GetComponent<ObjectMover> ();
+			scaling = true; //スケール変更をonに
 			if (b) { //trueならframeの外へ
 				Debug.Log ("ToOutSideFrame: " + objectType);
 				om.startMoving (childObject, detailPos); //移動開始
