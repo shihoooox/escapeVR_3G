@@ -75,7 +75,7 @@ namespace UnityStandardAssets.CinematicEffects
 
         private static Matrix4x4 CalculateViewProjection(Camera camera, Matrix4x4 prjMatrix)
         {
-            Matrix4x4 viewMat = camera.worldToCameraMatrix;
+			Matrix4x4 viewMat = camera.worldToCameraMatrix;
             Matrix4x4 projMat = GL.GetGPUProjectionMatrix(prjMatrix, true);
             return projMat * viewMat;
         }

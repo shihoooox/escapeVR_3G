@@ -26,14 +26,19 @@ public class MainManager : MonoBehaviour {
 			SomManager.moveToScreen (false);
 		}
 		
-		//debug
+ 		//each frame
 		Vector3 pos_ = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 		Ray ray_ = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit_;
+		int MarkerObjectType = -2;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
 			GameObject tmp = hit_.collider.gameObject;
 			Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
+			if (tmp.tag == "Marker") {
+				MarkerObjectType = tmp.GetComponent<MarkerInstance> ().objectType;
+			}
 		}
+		MarkerManager_G.GetComponent<MarkerManager> ().focus (MarkerObjectType);
 
 		//key: W (Wキーを押すと選択される処理)
 		if (Input.GetKeyDown (KeyCode.W)) {
