@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ObjectOnGame : MonoBehaviour {
 
-	public List<GameObject> itemList;
 	private int objectType;
 
 	// Use this for initialization
