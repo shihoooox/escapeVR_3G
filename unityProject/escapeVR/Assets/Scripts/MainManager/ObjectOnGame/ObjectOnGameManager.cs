@@ -15,8 +15,11 @@ public class ObjectOnGameManager : MonoBehaviour {
 
 	// objectTypeと対応するgameObjectのactOnDetail(actNum)を実行する
 	public void motion(int objectType, int actNum){
-		ObjectOnGame tmp = this.GetComponent<ObjectOnGame>();
-		//tmp.objectType = objectType;
-		tmp.actOnDetail(actNum);		
+		for (int i = 0; i < itemList.Count; i++) {
+			ObjectOnGame tmp = itemList[i].GetComponent<MainObjectMenuFrame> ();
+			if (tmp.objectType == objectType) {
+				tmp.actOnDetail(actNum);
+			}
+		}
 	}
 }
