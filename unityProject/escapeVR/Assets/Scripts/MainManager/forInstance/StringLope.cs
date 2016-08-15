@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ElevatorDoor : MonoBehaviour {
+public class StringLope : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
@@ -12,9 +12,5 @@ public class ElevatorDoor : MonoBehaviour {
 	}
 
 	public void forInstanceMotion(int actNum){	
-		if(actNum == 1) {
-			//ドアが開く処理
-			return;
-		}
 	}
 }
