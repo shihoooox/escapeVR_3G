@@ -19,7 +19,7 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	void Start () {
 		isSelected = false;
 		onScreen = false;
-		isActive = false;
+		//isActive = false; //初めから表示されているかどうかはオブジェクトによって異なるのでインスペクタで調整する(デフォはfalse)
 		isInsideFrame = true;
 		originalColor = GetComponent<Renderer> ().material.color;
 		scaling = false;
