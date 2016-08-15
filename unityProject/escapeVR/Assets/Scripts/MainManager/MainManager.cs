@@ -7,11 +7,14 @@ public class MainManager : MonoBehaviour {
 	public GameObject SubObjectMenuManager_G; //SubObjectMenuManagerのGameObject
 	public GameObject MarkerManager_G; //MarkerManagerのGameObject
 
+	public GameObject audioPlayer01;
+
 	private int selectedObjectNum;
 
 	// Use this for initialization
 	void Start () {
 		selectedObjectNum = -2;
+
 	}
 	
 	// Update is called once per frame
@@ -131,7 +134,6 @@ public class MainManager : MonoBehaviour {
 
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
-		SubObjectMenuManager manager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
-		manager.unsetObject (101);
+		audioPlayer01.GetComponent<AudioPlayer> ().play(true);
 	}
 }
