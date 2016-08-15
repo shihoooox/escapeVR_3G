@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ObjectOnGame : MonoBehaviour {
 
-	private int objectType;
+	public int objectType;
 
 	// Use this for initialization
 	void Start () {
@@ -92,8 +92,8 @@ public class ObjectOnGame : MonoBehaviour {
 			pl.forInstanceMotion(objectType, actNum);
 			break;
 		case 20:
-			シャッター ** = this.GetComponent<シャッター>();
-			**.forInstanceMotion(objectType, actNum);
+			Shutter sh = this.GetComponent<シャッター>();
+			sh.forInstanceMotion(objectType, actNum);
 			break;
 		case 21:
 			ElevatorButton eb = this.GetComponent<ElevatorButton>();
@@ -114,5 +114,9 @@ public class ObjectOnGame : MonoBehaviour {
 		default:
 			break;
 		}
+	}
+
+	public void appear(bool b) {
+		this.setActive(b);
 	}
 }
