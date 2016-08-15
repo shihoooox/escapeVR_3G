@@ -45,7 +45,7 @@ public class MainManager : MonoBehaviour {
 		int MarkerObjectType = -2;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
 			GameObject tmp = hit_.collider.gameObject;
-			Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
+			//Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
 			if (tmp.tag == "Marker") {
 				MarkerObjectType = tmp.GetComponent<MarkerInstance> ().objectType;
 			}
@@ -103,6 +103,8 @@ public class MainManager : MonoBehaviour {
 	}
 
 	void pressKeyDown_E() {
-
+		Debug.Log ("E key pressed");
+		SubObjectMenuManager manager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
+		manager.unsetObject (101);
 	}
 }
