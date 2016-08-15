@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ObjectOnGameManager : MonoBehaviour {
 
@@ -27,9 +28,25 @@ public class ObjectOnGameManager : MonoBehaviour {
 	// objectTypeと対応するgameObjectのactOnDetail(actNum)を実行する
 	public void motion(int objectType, int actNum){
 		for (int i = 0; i < itemList.Count; i++) {
-			ObjectOnGame tmp = itemList[i].GetComponent<MainObjectMenuFrame> ();
+			ObjectOnGame tmp = itemList[i].GetComponent<ObjectOnGame> ();
 			if (tmp.objectType == objectType) {
 				tmp.actOnDetail(actNum);
+			}
+		}
+	}
+
+	public void setObject(int objectType) {
+		for (int i = 0; i < itemList.Count; i++) {
+			if (itemList [i].GetComponent<ObjectOnGame> ().objectType == objectType) {
+				itemList [i].GetComponent<ObjectOnGame> ().appear (true);
+			}
+		}
+	}
+
+	public void unsetObject(int objectType) {
+		for (int i = 0; i < itemList.Count; i++) {
+			if (itemList [i].GetComponent<ObjectOnGame> ().objectType == objectType) {
+				itemList [i].GetComponent<ObjectOnGame> ().appear (false);
 			}
 		}
 	}
