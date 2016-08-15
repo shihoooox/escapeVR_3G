@@ -42,13 +42,12 @@ public class MainManager : MonoBehaviour {
 
 
 	void eachFrame() {
-		Vector3 pos_ = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 		Ray ray_ = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit_;
 		int MarkerObjectType = -2;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
 			GameObject tmp = hit_.collider.gameObject;
-			Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
+			//Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
 			if (tmp.tag == "Marker") {
 				MarkerObjectType = tmp.GetComponent<MarkerInstance> ().objectType;
 			}
@@ -72,13 +71,12 @@ public class MainManager : MonoBehaviour {
 
 	void pressKeyDown_W() {
 		Debug.Log ("W pressed");
-		Vector3 pos = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 		Ray ray = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit;
 		if (Physics.Raycast (ray, out hit, 100.0f)) {
 			int type = -2; //衝突したobjectType
 
-			Debug.Log ("hit: type" + hit.collider.gameObject.tag);
+			Debug.Log ("hit type : " + hit.collider.gameObject.tag + ", name : " + hit.collider.gameObject.name);
 
 			//hitしたのがMainObjectMenuFrameなら
 			if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
@@ -100,7 +98,11 @@ public class MainManager : MonoBehaviour {
 
 			//hitしたのがMainObjectMenuInstanceなら
 			else if (hit.collider.gameObject.tag == "MainObjectMenuInstance") {
-				int targetObjNum = hit.collider.gameObject.transform.root.gameObject.GetComponent<MainObjectMenuFrame> ().objectType;
+
+				Debug.Log ("parentsName: " + hit.collider.gameObject.transform.parent.gameObject.name +
+					", grandParentsName: " + hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.name);
+
+				int targetObjNum = hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<MainObjectMenuFrame> ().objectType;
 				int syntheSizedNum = this.GetComponent<ObjectSynthesizer>().synthesizeInMenu(targetObjNum, selectedObjectNum);
 				Debug.Log ("合成 target: " + targetObjNum + " - selected: " + selectedObjectNum + " => " + syntheSizedNum);
 				//MOMのオブジェクト削除

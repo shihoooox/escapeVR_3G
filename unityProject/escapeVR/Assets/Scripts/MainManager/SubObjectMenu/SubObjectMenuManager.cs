@@ -12,7 +12,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 	public GameObject tmp4;
 	public GameObject tmp5;
 	public List<GameObject> frameList = new List<GameObject>(); 
-	private int selectedObjectType; //選択されているobjectTypeを保持する、なければ-1
+	private int selectedObjectType; //選択されているobjectTypeを保持する、なければ-2
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 		frameList.Add (tmp4);
 		frameList.Add (tmp5);
 
-		selectedObjectType = -1;
+		selectedObjectType = -2;
 		Debug.Log ("未完成です");
 
 	}
