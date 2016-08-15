@@ -40,7 +40,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 			if (tmp.objectType == objectType) {
 				tmp.appear(true);
 			}
-			tmp.isActive = tmp.objectType == objectType;
+			//tmp.isActive = tmp.objectType == objectType;
 		}
 	}
 
@@ -51,7 +51,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 			if (tmp.objectType == objectType) {
 				tmp.appear(false);
 			}
-			tmp.isActive = tmp.objectType == objectType;
+			//tmp.isActive = tmp.objectType == objectType;
 		}
 	}
 

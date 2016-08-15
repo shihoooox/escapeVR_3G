@@ -42,6 +42,7 @@ public class SubObjectMenuFrame : MonoBehaviour {
 
 	//ユーザが取得したオブジェクトであれば、childObjectを表示させる
 	public void appear(bool active){
+		Debug.Log ("appear obj: " + objectType + " appear->" + active);
 		if(isActive != active){
 			childObject.SetActive(active);
 			isActive = active;
