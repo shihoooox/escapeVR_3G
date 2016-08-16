@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SubObjectMenuManager : MonoBehaviour {
-
+	public GameObject mainManager; //MainManagerのgameObject
 	public GameObject inCamera;
 	public GameObject outCamera;
 	public GameObject tmp1;//アイテム数だけある　addする
@@ -25,6 +25,10 @@ public class SubObjectMenuManager : MonoBehaviour {
 		selectedObjectType = -2;
 		Debug.Log ("未完成です");
 
+		foreach (GameObject frame in frameList) {
+			frame.GetComponent<SubObjectMenuFrame>().menu_normal = 
+				mainManager.GetComponent<MainManager> ().getTextureManager ().menu_normal;
+		}
 	}
 	
 	// Update is called once per frame

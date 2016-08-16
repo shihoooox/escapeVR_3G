@@ -6,7 +6,7 @@ public class MainManager : MonoBehaviour {
 	public GameObject MainObjectMenuManager_G; //MainObjectMenuManagerのGameObject
 	public GameObject SubObjectMenuManager_G; //SubObjectMenuManagerのGameObject
 	public GameObject MarkerManager_G; //MarkerManagerのGameObject
-
+	public GameObject TextureManager_G; //TextureManagerのgameObject
 	public GameObject audioPlayer01;
 
 	private int selectedObjectNum;
@@ -42,6 +42,9 @@ public class MainManager : MonoBehaviour {
 
 
 
+	public TextureManager getTextureManager() {
+		return this.TextureManager_G.GetComponent<TextureManager> ();
+	}
 
 
 	void eachFrame() {

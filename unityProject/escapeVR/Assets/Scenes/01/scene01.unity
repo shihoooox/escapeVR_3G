@@ -2589,6 +2589,7 @@ MonoBehaviour:
   MainObjectMenuManager_G: {fileID: 1137506356}
   SubObjectMenuManager_G: {fileID: 502130881}
   MarkerManager_G: {fileID: 1610337568}
+  TextureManager_G: {fileID: 1298331064}
   audioPlayer01: {fileID: 1890101870}
 --- !u!114 &747210499
 MonoBehaviour:
@@ -5163,6 +5164,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11472358, guid: 142381052628c403e997f02908341cc6, type: 2}
+      propertyPath: mainManager
+      value: 
+      objectReference: {fileID: 747210497}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 142381052628c403e997f02908341cc6, type: 2}
   m_IsPrefabParent: 0

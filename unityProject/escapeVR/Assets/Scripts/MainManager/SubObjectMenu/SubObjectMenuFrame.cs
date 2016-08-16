@@ -9,6 +9,8 @@ public class SubObjectMenuFrame : MonoBehaviour {
 	public bool isActive;
 	public int objectType;
 	private Color originalColor;
+	public Texture[] menu_normal;
+	private float gifNum = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,9 @@ public class SubObjectMenuFrame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		gifNum = (Time.time * 15) % menu_normal.Length;
+		this.GetComponent<Renderer> ().material.mainTexture = menu_normal [(int)gifNum];
 		
 	}
 

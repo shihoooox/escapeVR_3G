@@ -40,12 +40,6 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		try {
-			//MainObjectMenuInstance instance = childObject.GetComponent<MainObjectMenuInstance>();
-			//instance.homePos = this.transform.position; //移動処理はFrameが行うことになったのでこの処理自体不要になった
-		} catch (NullReferenceException e) {
-			//Debug.Log ("ぬるぽ"); //上の代入処理でぬるぽになるのを解決する必要がある。
-		}
 
 		if (scaling) {
 			Vector3 deltaScale = new Vector3 (100, 100, 100) * Time.deltaTime; //1秒で100だけ大きくなるベクトル
