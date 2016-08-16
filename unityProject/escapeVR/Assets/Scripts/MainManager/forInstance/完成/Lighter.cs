@@ -24,22 +24,32 @@ public class Lighter : MonoBehaviour {
 			return;
 		} else if(actNum == 2){
 			//	蓋が開く処理
-			Transform in_target;
-			in_target = huta.transform;
-			in_target.transform.Rotate (-135, 0, 0);
+			GameObject in_target = new GameObject();
+			in_target.transform.parent = this.transform;
+			// intargetを同階層のオブジェクトに
+
+			in_target.transform.position = huta.transform.position;
+			in_target.transform.rotation = huta.transform.rotation;
+			in_target.transform.localScale = huta.transform.localScale;
+			in_target.transform.Rotate (-90, 0, 0);
 			ObjectMover_2 om2 = this.GetComponent<ObjectMover_2>();
-			om2.startMoving(huta, in_target);
+			om2.startMoving(huta, in_target.transform);
 			return;
 		} else if(actNum == 3){
 			//	蓋が閉じる処理
 			// 火が消える処理(パーティクルをOFFにする)
 			ParticleSystem ps = particle.GetComponent<ParticleSystem>();
 			ps.Stop();
-			Transform in_target;
-			in_target = huta.transform;
-			in_target.transform.Rotate (135, 0, 0);
+			GameObject in_target = new GameObject();
+			in_target.transform.parent = this.transform;
+			// intargetを同階層のオブジェクトに
+
+			in_target.transform.position = huta.transform.position;
+			in_target.transform.rotation = huta.transform.rotation;
+			in_target.transform.localScale = huta.transform.localScale;
+			in_target.transform.Rotate (90, 0, 0);
 			ObjectMover_2 om2 = this.GetComponent<ObjectMover_2>();
-			om2.startMoving(huta, in_target);
+			om2.startMoving(huta, in_target.transform);
 			return;
 		}
 	}
