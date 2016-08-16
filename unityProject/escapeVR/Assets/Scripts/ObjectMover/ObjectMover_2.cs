@@ -1,4 +1,10 @@
-﻿ using UnityEngine;
+﻿/*
+07/20 イージング関数を作成した.
+08/06 仕様を満たすようにするため、moveObjectメソッドを改良した.
+08/13 回転とスケールの処理を追加した.
+*/
+
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -17,39 +23,65 @@ public class ObjectMover_2 : MonoBehaviour
 		EaseInOutQuad//だんだん速くなってだんだん遅くなる(moveType1に相当)
 	}
 
-	public GameObject target;//移動する先のオブジェクトを指定
-	public GameObject movedObject;
+	private Transform target;//移動する先のオブジェクトを指定
+	private GameObject movedObject;
 	public float T0;//移動する時間を指定
 	public bool trigger;//trueでイージング発動する.イージングが終わると、falseになる.
 	public EasingFunction easingFunction;//イージング関数のタイプ
 
-
+	private int moveType;
 	private float duration;//nowTime(s)
-	private Vector3 diff;//ターゲットとの距離ベクトル
-	private Vector3 initPos;//イージング前のこのゲームオブジェクトの初期位置
+
+	private Vector3 diffPosition;//ターゲットのオブジェクトの位置の差を格納するベクトル
+	private Vector3 diffRotation;//ターゲットのオブジェクトの回転の差を格納するベクトル
+	private Vector3 diffScale;//ターゲットのオブジェクトのスケールの差を格納するベクトル
+
+	private Vector3 initPosition;//イージング前のゲームオブジェクトの初期位置
+	private Vector3 initRotation;//イージング前のゲームオブジェクトの初期回転
+	private Vector3 initScale;//イージング前のゲームオブジェクトの初期スケール
+
 	private bool inOutSwitch;//InOutを行うための真ん中切り替え(falseならIn、trueならOut中)
 	private float tempDuration;//InOutのOutからのduration
+
 
 	// Use this for initialization
 	void Start()
 	{
+		/*
+		moveType = 0;
 		duration = 0;
 
-		//ターゲットになっている座標から現在、紐付けされている座標の差をとる
-		diff = target.transform.position - movedObject.transform.position;
+		//移動させるオブジェクトの初期位置を定める
+		initPosition = movedObject.transform.position;
 
-		//現在、紐付けされている座標を初期値とする
-		initPos = movedObject.transform.position;
+		//移動させるオブジェクトの初期回転を定める
+		initRotation = movedObject.transform.eulerAngles;
 
+		//移動させるオブジェクトの初期スケールを定める
+		initScale = movedObject.transform.localScale;
+
+
+		//ターゲットのオブジェクトの位置と移動させるオブジェクトの初期位置の差を定める
+		diffPosition = target.position - initPosition;
+
+		//ターゲットのオブジェクトの回転と移動させるオブジェクトの初期回転の差を定める
+		diffRotation = target.eulerAngles - initRotation;
+
+		//ターゲットのオブジェクトのスケールと移動させるオブジェクトの初期スケールの差を定める
+		diffScale = target.localScale - initScale;
+
+
+		Debug.Log("xP:" + diffPosition.x + "  yP:" + diffPosition.y + "  zP:" + diffPosition.z);
+		Debug.Log("xR:" + diffRotation.x + "  yR:" + diffRotation.y + "  zR:" + diffRotation.z);
+		Debug.Log("xS:" + diffScale.x + "  yS:" + diffScale.y + "  zS:" + diffScale.z);
+		//Debug.Log ("値：" + movedObject.transform.eulerAngles.x);
 		//Debug.Log(diff);
+		*/
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		
-		int moveType = 0;
-
 		switch (easingFunction) {
 		case EasingFunction.Linear:
 			moveType = 0;
@@ -57,17 +89,46 @@ public class ObjectMover_2 : MonoBehaviour
 		case EasingFunction.EaseInQuad:
 			moveType = 3;
 			break;
-
 		case EasingFunction.EaseOutQuad:
 			moveType = 2;
 			break;
-
 		case EasingFunction.EaseInOutQuad:
 			moveType = 1;
 			break;
 		}
 
-		moveObject(movedObject,target.transform,moveType,T0);//velocity(1flame)
+		if(trigger) moveObject(movedObject,target,moveType,T0);//velocity(1flame)
+	}
+
+
+	public void startMoving(GameObject in_movedObject, Transform in_target) {
+		this.movedObject = in_movedObject;
+		this.target = in_target;
+
+		moveType = 0;
+		duration = 0;
+
+		//移動させるオブジェクトの初期位置を定める
+		initPosition = movedObject.transform.position;
+
+		//移動させるオブジェクトの初期回転を定める
+		initRotation = movedObject.transform.eulerAngles;
+
+		//移動させるオブジェクトの初期スケールを定める
+		initScale = movedObject.transform.localScale;
+
+
+		//ターゲットのオブジェクトの位置と移動させるオブジェクトの初期位置の差を定める
+		diffPosition = target.position - initPosition;
+
+		//ターゲットのオブジェクトの回転と移動させるオブジェクトの初期回転の差を定める
+		diffRotation = target.eulerAngles - initRotation;
+
+		//ターゲットのオブジェクトのスケールと移動させるオブジェクトの初期スケールの差を定める
+		diffScale = target.localScale - initScale;
+
+		trigger = true;
+
 	}
 
 
@@ -78,8 +139,14 @@ public class ObjectMover_2 : MonoBehaviour
 		 */
 		if (!trigger)
 		{
-			diff = transform.position - movedObject.transform.position;
-			initPos = movedObject.transform.position;
+			initPosition = movedObject.transform.position;
+			initRotation = movedObject.transform.eulerAngles;
+			initScale = movedObject.transform.localScale;
+
+			diffPosition = transform.position - initPosition;
+			diffRotation = target.transform.eulerAngles - initRotation;
+			diffScale = target.transform.localScale - initScale;
+
 			return;
 		}
 
@@ -92,11 +159,10 @@ public class ObjectMover_2 : MonoBehaviour
 			trigger = false;//easingが終わったのでfalseにする.
 			duration = 0;
 			movedObject.transform.position = transform.position;
+			movedObject.transform.eulerAngles = transform.eulerAngles;
+			movedObject.transform.localScale = transform.localScale;
 			return;
 		}
-
-		//Debug.Log("x:" + diff.x + "y:" + diff.y + "z:" + diff.z);
-		//Debug.Log("aaaduration:" + duration + ", T0:" +  T0 + ", x:" + diff.x + ", y:" + diff.y + ", z:" + diff.z);
 
 		switch (moveType)
 		{
@@ -105,30 +171,66 @@ public class ObjectMover_2 : MonoBehaviour
 		case 0:
 			movedObject.transform.position =
 				new Vector3(
-					linear(duration, T0, diff.x),
-					linear(duration, T0, diff.y),
-					linear(duration, T0, diff.z)
-				) + initPos;
+					linear(duration, T0, diffPosition.x),
+					linear(duration, T0, diffPosition.y),
+					linear(duration, T0, diffPosition.z)
+				) + initPosition;
+			movedObject.transform.eulerAngles =
+				new Vector3(
+					linear(duration, T0, diffRotation.x),
+					linear(duration, T0, diffRotation.y),
+					linear(duration, T0, diffRotation.z)
+				) + initRotation;
+			movedObject.transform.localScale =
+				new Vector3(
+					linear(duration, T0, diffScale.x),
+					linear(duration, T0, diffScale.y),
+					linear(duration, T0, diffScale.z)
+				) + initScale;
 			break;
 
 			//だんだん速くなる(moveType3に相当)
 		case 3:
 			movedObject.transform.position =
 				new Vector3(
-					easeInQuad(duration, T0, diff.x),
-					easeInQuad(duration, T0, diff.y),
-					easeInQuad(duration, T0, diff.z)
-				) + initPos;
+					easeInQuad(duration, T0, diffPosition.x),
+					easeInQuad(duration, T0, diffPosition.y),
+					easeInQuad(duration, T0, diffPosition.z)
+				) + initPosition;
+			movedObject.transform.eulerAngles =
+				new Vector3(
+					easeInQuad(duration, T0, diffRotation.x),
+					easeInQuad(duration, T0, diffRotation.y),
+					easeInQuad(duration, T0, diffRotation.z)
+				) + initRotation;
+			movedObject.transform.localScale =
+				new Vector3(
+					easeInQuad(duration, T0, diffScale.x),
+					easeInQuad(duration, T0, diffScale.y),
+					easeInQuad(duration, T0, diffScale.z)
+				) + initScale;
 			break;
 
 			//だんだん遅くなる(moveType2に相当)
 		case 2:
 			movedObject.transform.position =
 				new Vector3(
-					easeOutQuad(duration, T0, diff.x),
-					easeOutQuad(duration, T0, diff.y),
-					easeOutQuad(duration, T0, diff.z)
-				) + initPos;
+					easeOutQuad(duration, T0, diffPosition.x),
+					easeOutQuad(duration, T0, diffPosition.y),
+					easeOutQuad(duration, T0, diffPosition.z)
+				) + initPosition;
+			movedObject.transform.eulerAngles =
+				new Vector3(
+					easeOutQuad(duration, T0, diffRotation.x),
+					easeOutQuad(duration, T0, diffRotation.y),
+					easeOutQuad(duration, T0, diffRotation.z)
+				) + initRotation;
+			movedObject.transform.localScale =
+				new Vector3(
+					easeOutQuad(duration, T0, diffScale.x),
+					easeOutQuad(duration, T0, diffScale.y),
+					easeOutQuad(duration, T0, diffScale.z)
+				) + initScale;
 			break;
 
 			//だんだん速くなってだんだん遅くなる(moveType1に相当)
@@ -141,29 +243,59 @@ public class ObjectMover_2 : MonoBehaviour
 				inOutSwitch = false;
 				movedObject.transform.position =
 					new Vector3(
-						easeInQuad(duration, T0 / 2, diff.x / 2),
-						easeInQuad(duration, T0 / 2, diff.y / 2),
-						easeInQuad(duration, T0 / 2, diff.z / 2)
-					) + initPos;
+						easeInQuad(duration, T0 / 2, diffPosition.x / 2),
+						easeInQuad(duration, T0 / 2, diffPosition.y / 2),
+						easeInQuad(duration, T0 / 2, diffPosition.z / 2)
+					) + initPosition;
+				movedObject.transform.eulerAngles =
+					new Vector3(
+						easeInQuad(duration, T0 / 2, diffRotation.x / 2),
+						easeInQuad(duration, T0 / 2, diffRotation.y / 2),
+						easeInQuad(duration, T0 / 2, diffRotation.z / 2)
+					) + initRotation;
+				
+				movedObject.transform.localScale =
+					new Vector3(
+						easeInQuad(duration, T0 / 2, diffScale.x / 2),
+						easeInQuad(duration, T0 / 2, diffScale.y / 2),
+						easeInQuad(duration, T0 / 2, diffScale.z / 2)
+					) + initScale;
 			}
 			else
 			{
 				//だんだん遅くなる
 				if (!inOutSwitch)
 				{
-					diff = transform.position - movedObject.transform.position;
-					initPos = movedObject.transform.position;
+					initPosition = movedObject.transform.position;
+					initRotation = movedObject.transform.eulerAngles;
+					initScale = movedObject.transform.localScale;
+
+					diffPosition = transform.position - initPosition;
+					diffRotation = transform.eulerAngles - initRotation;
+					diffScale = transform.localScale - initScale;
+
 					inOutSwitch = true;
 					tempDuration = 0;
 				}
 
 				movedObject.transform.position =
 					new Vector3(
-						easeOutQuad(tempDuration, T0 / 2, diff.x),
-						easeOutQuad(tempDuration, T0 / 2, diff.y),
-						easeOutQuad(tempDuration, T0 / 2, diff.z)
-					) + initPos;
-
+						easeOutQuad(tempDuration, T0 / 2, diffPosition.x),
+						easeOutQuad(tempDuration, T0 / 2, diffPosition.y),
+						easeOutQuad(tempDuration, T0 / 2, diffPosition.z)
+					) + initPosition;
+				movedObject.transform.eulerAngles =
+					new Vector3(
+						easeOutQuad(tempDuration, T0 / 2, diffRotation.x),
+						easeOutQuad(tempDuration, T0 / 2, diffRotation.y),
+						easeOutQuad(tempDuration, T0 / 2, diffRotation.z)
+					) + initRotation;
+				movedObject.transform.localScale =
+					new Vector3(
+						easeOutQuad(tempDuration, T0 / 2, diffScale.x),
+						easeOutQuad(tempDuration, T0 / 2, diffScale.y),
+						easeOutQuad(tempDuration, T0 / 2, diffScale.z)
+					) + initScale;
 			}
 
 			break;
@@ -180,10 +312,7 @@ public class ObjectMover_2 : MonoBehaviour
 		}
 
 	}
-
-
-
-
+		
 	/*
 	 	時間に応じて、等速に移動するような関数
 	 	function(時間t, 時間終了値T0, 変位終了値L0)
@@ -214,8 +343,5 @@ public class ObjectMover_2 : MonoBehaviour
 		float a = L0 / Mathf.Pow(T0, 2);
 		return -a * Mathf.Pow(time - T0, 2) + L0;
 	}
-
-
-
+		
 }
-
