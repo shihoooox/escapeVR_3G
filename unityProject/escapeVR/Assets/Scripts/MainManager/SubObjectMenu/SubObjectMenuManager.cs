@@ -29,6 +29,8 @@ public class SubObjectMenuManager : MonoBehaviour {
 				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_normal;
 			frame.GetComponent<SubObjectMenuFrame>().menu_noItem = 
 				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_noItem;
+			frame.GetComponent<SubObjectMenuFrame>().menu_used = 
+				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_used;
 		}
 	}
 	
@@ -54,7 +56,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 		for (int i = 0; i < frameList.Count; i++) {
 			SubObjectMenuFrame tmp = frameList[i].GetComponent<SubObjectMenuFrame> ();
 			if (tmp.objectType == objectType) {
-				tmp.appear(false);
+				tmp.used(true);
 			}
 			//tmp.isActive = tmp.objectType == objectType;
 		}

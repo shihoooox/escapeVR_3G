@@ -50,15 +50,19 @@ public class MainManager : MonoBehaviour {
 	void eachFrame() {
 		Ray ray_ = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit_;
-		int MarkerObjectType = -2;
+		int focusObjectType = -2;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
 			GameObject tmp = hit_.collider.gameObject;
 			//Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
 			if (tmp.tag == "Marker") {
-				MarkerObjectType = tmp.GetComponent<MarkerInstance> ().objectType;
+				focusObjectType = tmp.GetComponent<MarkerInstance> ().objectType;
+			} else if(tmp.tag == "MainObjectMenuFrame") {
+
+				focusObjectType = tmp.GetComponent<MainObjectMenuFrame> ().objectType;
 			}
 		}
-		MarkerManager_G.GetComponent<MarkerManager> ().focus (MarkerObjectType);
+		MarkerManager_G.GetComponent<MarkerManager> ().focus (focusObjectType);
+		MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().focus (focusObjectType);
 	}
 
 	void pressKeyDown_Q() {
