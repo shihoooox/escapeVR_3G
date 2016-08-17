@@ -4,6 +4,7 @@ using System.Collections;
 public class ElevatorButton : MonoBehaviour {
 
 	private Renderer _renderer;
+	//光らせたいボタン自身につけて
 
 	// Use this for initialization
 	void Start () {
