@@ -15,7 +15,7 @@ public class MainObjectMenuInstance : MonoBehaviour {
 		nowPos = false;
 		changePos = false;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	}
@@ -42,7 +42,6 @@ public class MainObjectMenuInstance : MonoBehaviour {
 		Debug.Log("未完成です");
 		/*
 		if (this.getComponent<MinaObjectMenuForm> != null) {
-
 			this.getComponent<MainObjectMenuFrame>.objectType;
 			switch(inObjectType){
 			case 0:

@@ -17,99 +17,107 @@ public class ObjectOnGame : MonoBehaviour {
 		switch (objectType){
 		case 1:
 			WineBottle bottle = this.GetComponent<WineBottle>();
-			bottle.forInstanceMotion(objectType, actNum);
+			bottle.forInstanceMotion(actNum);
 			break;
 		case 2:
 			Alcohol al = this.GetComponent< Alcohol >();
-			al.forInstanceMotion(objectType, actNum);
+			al.forInstanceMotion(actNum);
 			break;
 		case 3:
 			Iron iron = this.GetComponent<Iron>();
-			iron.forInstanceMotion(objectType, actNum);
+			iron.forInstanceMotion(actNum);
 			break;
 		case 4:
 			WoodenStick ws = this.GetComponent<WoodenStick>();
-			ws.forInstanceMotion(objectType, actNum);
+			ws.forInstanceMotion(actNum);
 			break;
 		case 5:
 			Ice ice = this.GetComponent<Ice>();
-			ice.forInstanceMotion(objectType, actNum);
+			ice.forInstanceMotion(actNum);
 			break;
 		case 6:
 			Cup cup = this.GetComponent<Cup>();
-			cup.forInstanceMotion(objectType, actNum);
+			cup.forInstanceMotion(actNum);
 			break;
 		case 7:
-			String str = this.GetComponent<String>();
-			str.forInstanceMotion(objectType, actNum);
+			StringLope strl = this.GetComponent<StringLope>();
+			strl.forInstanceMotion(actNum);
 			break;
 		case 8:
 			Lighter lig = this.GetComponent<Lighter>();
-			lig.forInstanceMotion(objectType, actNum);
+			lig.forInstanceMotion(actNum);
 			break;
 		case 9:
 			Hammer hammer = this.GetComponent<Hammer>();
-			hammer.forInstanceMotion(objectType, actNum);
+			hammer.forInstanceMotion(actNum);
 			break;
 		case 10:
 			Key key = this.GetComponent<Key>();
-			key.forInstanceMotion(objectType, actNum);
+			key.forInstanceMotion(actNum);
 			break;
 		case 11:
 			AlcoholInCup aic = this.GetComponent<AlcoholInCup>();
-			aic.forInstanceMotion(objectType, actNum);
+			aic.forInstanceMotion(actNum);
 			break;
 		case 12:
 			Candle candle = this.GetComponent<Candle>();
-			candle.forInstanceMotion(objectType, actNum);
+			candle.forInstanceMotion(actNum);
 			break;
 		case 13:
 			Plate plate = this.GetComponent<Plate>();
-			plate.forInstanceMotion(objectType, actNum);
+			plate.forInstanceMotion(actNum);
 			break;
 		case 14:
 			BilliardCue bc = this.GetComponent<BilliardCue>();
-			bc.forInstanceMotion(objectType, actNum);
+			bc.forInstanceMotion(actNum);
 			break;
 		case 15:
 			BilliardBall bb = this.GetComponent<BilliardBall>();
-			bb.forInstanceMotion(objectType, actNum);
+			bb.forInstanceMotion(actNum);
 			break;
 		case 16:
 			RefrigeratorDoor rf = this.GetComponent<RefrigeratorDoor>();
-			rd.forInstanceMotion(objectType, actNum);
+			rf.forInstanceMotion(actNum);
 			break;
 		case 17:
 			Chair01 chair01 = this.GetComponent<Chair01>();
-			chair01.forInstanceMotion(objectType, actNum);
+			chair01.forInstanceMotion(actNum);
 			break;
 		case 18:
 			Keyhole kh = this.GetComponent<Keyhole>();
-			kh.forInstanceMotion(objectType, actNum);
+			kh.forInstanceMotion(actNum);
 			break;
 		case 19:
 			PasswordLocker pl = this.GetComponent<PasswordLocker>();
-			pl.forInstanceMotion(objectType, actNum);
+			pl.forInstanceMotion(actNum);
 			break;
 		case 20:
-			Shutter sh = this.GetComponent<シャッター>();
-			sh.forInstanceMotion(objectType, actNum);
+			Shutter sh = this.GetComponent<Shutter>();
+			sh.forInstanceMotion(actNum);
 			break;
 		case 21:
-			ElevatorButton eb = this.GetComponent<ElevatorButton>();
-			eb.forInstanceMotion(objectType, actNum);
+			ElevatorButton eb_1 = this.GetComponent<ElevatorButton>();
+			eb_1.forInstanceMotion(actNum);
 			break;
 		case 22:
-			ElevatorButton eb = this.GetComponent<ElevatorButton>();
-			eb.forInstanceMotion(objectType, actNum);
+			ElevatorButton eb_16 = this.GetComponent<ElevatorButton>();
+			eb_16.forInstanceMotion(actNum);
 			break;
 		case 23:
-			ElevatorButton eb = this.GetComponent<ElevatorButton>();
-			eb.forInstanceMotion(objectType, actNum);
+			ElevatorButton eb_other = this.GetComponent<ElevatorButton>();
+			eb_other.forInstanceMotion(actNum);
+			break;
+		case 35:
+			ElevatorButton eb_open = this.GetComponent<ElevatorButton>();
+			eb_open.forInstanceMotion(actNum);
+			break;
+		case 36:
+			ElevatorButton eb_close = this.GetComponent<ElevatorButton>();
+			eb_close.forInstanceMotion(actNum);
 			break;
 		case 37:
 			ElevatorDoor ed = this.GetComponent<ElevatorDoor>();
-			ed.forInstanceMotion(objectType, actNum);
+			ed.forInstanceMotion(actNum);
 			break;
 		default:
 			break;
@@ -117,6 +125,6 @@ public class ObjectOnGame : MonoBehaviour {
 	}
 
 	public void appear(bool b) {
-		this.setActive(b);
+		this.gameObject.SetActive(b);
 	}
 }

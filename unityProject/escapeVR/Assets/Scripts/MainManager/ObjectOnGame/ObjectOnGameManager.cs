@@ -5,19 +5,9 @@ using System.Collections.Generic;
 public class ObjectOnGameManager : MonoBehaviour {
 
 	public List<GameObject> itemList;
-	public GameObject tmp1;//アイテム数だけある　addする
-	public GameObject tmp2;
-	public GameObject tmp3;
-	public GameObject tmp4;
-	public GameObject tmp5;
 
 	// Use this for initialization
 	void Start () {
-		itemList.Add (tmp1);
-		itemList.Add (tmp2);
-		itemList.Add (tmp3);
-		itemList.Add (tmp4);
-		itemList.Add (tmp5);
 
 	}
 	
@@ -49,5 +39,25 @@ public class ObjectOnGameManager : MonoBehaviour {
 				itemList [i].GetComponent<ObjectOnGame> ().appear (false);
 			}
 		}
+	}
+
+	public static int getStaticActNumFromObjectType(int objectType, GameObject gameObject) {
+
+		if (objectType == 23) //エレベータの階級ボタン光らすだけ
+			gameObject.GetComponent<ObjectOnGame> ().actOnDetail (3);
+
+		else if (objectType == 21) //エレベータの階級ボタン光らすだけ
+			gameObject.GetComponent<ObjectOnGame> ().actOnDetail (3);
+
+		else if(objectType == 22) //エレベータの階級ボタン光らすだけ
+			gameObject.GetComponent<ObjectOnGame> ().actOnDetail (3);
+
+		else if (objectType == 35) //エレベータのopenボタン
+			gameObject.GetComponent<ObjectOnGame> ().actOnDetail (4);
+
+		else if (objectType == 36) //エレベータのcloseボタン
+			gameObject.GetComponent<ObjectOnGame> ().actOnDetail (5);
+
+		return -2;
 	}
 }
