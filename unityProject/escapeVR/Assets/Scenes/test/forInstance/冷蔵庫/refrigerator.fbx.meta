@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: 62125fb8fe9374e32a487866a3c6cf81
+timeCreated: 1471194515
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bodies
+    100002: body
+    100004: body_2
+    100006: doors
+    100008: inBody
+    100010: innner
+    100012: innner_2
+    100014: innner_3
+    100016: net
+    100018: net_1
+    100020: net_2
+    100022: net_2_2
+    100024: net_3
+    100026: nets
+    100028: //RootNode
+    100030: "\u30C9\u30A2\u4E0A\u53F3"
+    100032: "\u30C9\u30A2\u4E0A\u5DE6"
+    100034: "\u30C9\u30A2\u4E0B\u53F3"
+    100036: "\u30C9\u30A2\u4E0B\u5DE6"
+    100038: "\u30C9\u30A2\u5F8C\u308D"
+    100040: "\u30C9\u30A2\u5F8C\u308D_2"
+    100042: "\u30C9\u30A2\u5F8C\u308D_3"
+    100044: "\u30C9\u30A2\u5F8C\u308D_4"
+    100046: "\u30D1\u30C3\u30AD\u30F3"
+    100048: "\u30D1\u30C3\u30AD\u30F3_1"
+    100050: "\u30D1\u30C3\u30AD\u30F3_2"
+    100052: "\u30D1\u30C3\u30AD\u30F3_3"
+    100054: "\u30D6\u30FC\u30EB"
+    100056: "\u30D6\u30FC\u30EB_1"
+    100058: "\u4E0A\u30AB\u30D0\u30FC"
+    100060: "\u67F1\u6A2A"
+    100062: "\u67F1\u7E26"
+    100064: "\u7ACB\u65B9\u4F53"
+    400000: bodies
+    400002: body
+    400004: body_2
+    400006: doors
+    400008: inBody
+    400010: innner
+    400012: innner_2
+    400014: innner_3
+    400016: net
+    400018: net_1
+    400020: net_2
+    400022: net_2_2
+    400024: net_3
+    400026: nets
+    400028: //RootNode
+    400030: "\u30C9\u30A2\u4E0A\u53F3"
+    400032: "\u30C9\u30A2\u4E0A\u5DE6"
+    400034: "\u30C9\u30A2\u4E0B\u53F3"
+    400036: "\u30C9\u30A2\u4E0B\u5DE6"
+    400038: "\u30C9\u30A2\u5F8C\u308D"
+    400040: "\u30C9\u30A2\u5F8C\u308D_2"
+    400042: "\u30C9\u30A2\u5F8C\u308D_3"
+    400044: "\u30C9\u30A2\u5F8C\u308D_4"
+    400046: "\u30D1\u30C3\u30AD\u30F3"
+    400048: "\u30D1\u30C3\u30AD\u30F3_1"
+    400050: "\u30D1\u30C3\u30AD\u30F3_2"
+    400052: "\u30D1\u30C3\u30AD\u30F3_3"
+    400054: "\u30D6\u30FC\u30EB"
+    400056: "\u30D6\u30FC\u30EB_1"
+    400058: "\u4E0A\u30AB\u30D0\u30FC"
+    400060: "\u67F1\u6A2A"
+    400062: "\u67F1\u7E26"
+    400064: "\u7ACB\u65B9\u4F53"
+    2300000: body_2
+    2300002: innner
+    2300004: innner_2
+    2300006: innner_3
+    2300008: net
+    2300010: net_1
+    2300012: net_2
+    2300014: net_2_2
+    2300016: net_3
+    2300018: "\u30C9\u30A2\u4E0A\u53F3"
+    2300020: "\u30C9\u30A2\u4E0A\u5DE6"
+    2300022: "\u30C9\u30A2\u4E0B\u53F3"
+    2300024: "\u30C9\u30A2\u4E0B\u5DE6"
+    2300026: "\u30C9\u30A2\u5F8C\u308D"
+    2300028: "\u30C9\u30A2\u5F8C\u308D_2"
+    2300030: "\u30C9\u30A2\u5F8C\u308D_3"
+    2300032: "\u30C9\u30A2\u5F8C\u308D_4"
+    2300034: "\u30D1\u30C3\u30AD\u30F3"
+    2300036: "\u30D1\u30C3\u30AD\u30F3_1"
+    2300038: "\u30D1\u30C3\u30AD\u30F3_2"
+    2300040: "\u30D1\u30C3\u30AD\u30F3_3"
+    2300042: "\u30D6\u30FC\u30EB_1"
+    2300044: "\u4E0A\u30AB\u30D0\u30FC"
+    2300046: "\u67F1\u6A2A"
+    2300048: "\u67F1\u7E26"
+    2300050: "\u7ACB\u65B9\u4F53"
+    3300000: body_2
+    3300002: innner
+    3300004: innner_2
+    3300006: innner_3
+    3300008: net
+    3300010: net_1
+    3300012: net_2
+    3300014: net_2_2
+    3300016: net_3
+    3300018: "\u30C9\u30A2\u4E0A\u53F3"
+    3300020: "\u30C9\u30A2\u4E0A\u5DE6"
+    3300022: "\u30C9\u30A2\u4E0B\u53F3"
+    3300024: "\u30C9\u30A2\u4E0B\u5DE6"
+    3300026: "\u30C9\u30A2\u5F8C\u308D"
+    3300028: "\u30C9\u30A2\u5F8C\u308D_2"
+    3300030: "\u30C9\u30A2\u5F8C\u308D_3"
+    3300032: "\u30C9\u30A2\u5F8C\u308D_4"
+    3300034: "\u30D1\u30C3\u30AD\u30F3"
+    3300036: "\u30D1\u30C3\u30AD\u30F3_1"
+    3300038: "\u30D1\u30C3\u30AD\u30F3_2"
+    3300040: "\u30D1\u30C3\u30AD\u30F3_3"
+    3300042: "\u30D6\u30FC\u30EB_1"
+    3300044: "\u4E0A\u30AB\u30D0\u30FC"
+    3300046: "\u67F1\u6A2A"
+    3300048: "\u67F1\u7E26"
+    3300050: "\u7ACB\u65B9\u4F53"
+    4300000: "\u30C9\u30A2\u4E0B\u5DE6"
+    4300002: "\u30C9\u30A2\u5F8C\u308D"
+    4300004: "\u30C9\u30A2\u4E0B\u53F3"
+    4300006: "\u30C9\u30A2\u5F8C\u308D_2"
+    4300008: "\u30C9\u30A2\u4E0A\u5DE6"
+    4300010: "\u30C9\u30A2\u5F8C\u308D_3"
+    4300012: "\u30C9\u30A2\u4E0A\u53F3"
+    4300014: "\u30D6\u30FC\u30EB_1"
+    4300016: "\u30C9\u30A2\u5F8C\u308D_4"
+    4300018: "\u7ACB\u65B9\u4F53"
+    4300020: "\u4E0A\u30AB\u30D0\u30FC"
+    4300022: "\u67F1\u7E26"
+    4300024: "\u67F1\u6A2A"
+    4300026: "\u30D1\u30C3\u30AD\u30F3"
+    4300028: "\u30D1\u30C3\u30AD\u30F3_2"
+    4300030: "\u30D1\u30C3\u30AD\u30F3_1"
+    4300032: "\u30D1\u30C3\u30AD\u30F3_3"
+    4300034: innner
+    4300036: innner_2
+    4300038: body_2
+    4300040: innner_3
+    4300042: net
+    4300044: net_3
+    4300046: net_2
+    4300048: net_2_2
+    4300050: net_1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
