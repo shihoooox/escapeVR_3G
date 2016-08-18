@@ -7,6 +7,7 @@ public class MainManager : MonoBehaviour {
 	public GameObject SubObjectMenuManager_G; //SubObjectMenuManagerのGameObject
 	public GameObject MarkerManager_G; //MarkerManagerのGameObject
 	public GameObject TextureManager_G; //TextureManagerのgameObject
+	public GameObject ObjectOnGameManager_G; //ObjectOnGameManagerのgameObject
 	public GameObject audioPlayer01;
 
 	private int selectedObjectNum;
@@ -91,8 +92,8 @@ public class MainManager : MonoBehaviour {
 			//hitしたのがMainObjectMenuFrameなら
 			if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
 				//usedでもなく未取得でもなければ実行
-				if (!hit.collider.gameObject.GetComponent<MainObjectMenuFrame>().isUsed &&
-				   hit.collider.gameObject.GetComponent<MainObjectMenuFrame> ().childObject.activeSelf) {
+				if (!hit.collider.gameObject.GetComponent<MainObjectMenuFrame> ().isUsed &&
+				    hit.collider.gameObject.GetComponent<MainObjectMenuFrame> ().childObject.activeSelf) {
 
 					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
 					MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
@@ -119,7 +120,7 @@ public class MainManager : MonoBehaviour {
 				//	", grandParentsName: " + hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.name);
 
 				int targetObjNum = hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<MainObjectMenuFrame> ().objectType;
-				int syntheSizedNum = this.GetComponent<ObjectSynthesizer>().synthesizeInMenu(targetObjNum, selectedObjectNum);
+				int syntheSizedNum = this.GetComponent<ObjectSynthesizer> ().synthesizeInMenu (targetObjNum, selectedObjectNum);
 				//Debug.Log ("合成 target: " + targetObjNum + " - selected: " + selectedObjectNum + " => " + syntheSizedNum);
 
 				//もしnull(-2)でなければ合成処理
@@ -139,12 +140,25 @@ public class MainManager : MonoBehaviour {
 			}
 
 			//hitしたのがMarkerなら
-			else if(hit.collider.gameObject.tag == "Marker") {
+			else if (hit.collider.gameObject.tag == "Marker") {
 				MarkerInstance instance = hit.collider.gameObject.GetComponent<MarkerInstance> ();
-				MarkerManager manager =  MarkerManager_G.GetComponent<MarkerManager> ();
+				MarkerManager manager = MarkerManager_G.GetComponent<MarkerManager> ();
 				type = instance.objectType;
-				Debug.Log("move to " + type);
+				Debug.Log ("move to " + type);
 				manager.moveTo (type);
+			}
+
+			//hitしたのがObjectOnGameなら
+			else if (hit.collider.gameObject.tag == "ObjectOnGame") {
+				int hitObjectNum = hit.collider.gameObject.GetComponent<ObjectOnGame> ().objectType; //hitしたObjNumを保存
+				int staticActNum = ObjectOnGameManager.getStaticActNumFromObjectType (hitObjectNum, hit.collider.gameObject); //もし決まったactNumを保存
+
+				if (staticActNum != -2) { //決まったactNumがあれば(-2でなければ)それを実行
+					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, staticActNum);
+				} else { //決まったactNumがない時
+
+				}
+
 			}
 		}
 	}

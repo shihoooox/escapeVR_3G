@@ -96,16 +96,24 @@ public class ObjectOnGame : MonoBehaviour {
 			sh.forInstanceMotion(actNum);
 			break;
 		case 21:
-			ElevatorButton eb = this.GetComponent<ElevatorButton>();
-			eb.forInstanceMotion(actNum);
-			break;
-		case 22:
 			ElevatorButton eb_1 = this.GetComponent<ElevatorButton>();
 			eb_1.forInstanceMotion(actNum);
 			break;
-		case 23:
+		case 22:
 			ElevatorButton eb_16 = this.GetComponent<ElevatorButton>();
 			eb_16.forInstanceMotion(actNum);
+			break;
+		case 23:
+			ElevatorButton eb_other = this.GetComponent<ElevatorButton>();
+			eb_other.forInstanceMotion(actNum);
+			break;
+		case 35:
+			ElevatorButton eb_open = this.GetComponent<ElevatorButton>();
+			eb_open.forInstanceMotion(actNum);
+			break;
+		case 36:
+			ElevatorButton eb_close = this.GetComponent<ElevatorButton>();
+			eb_close.forInstanceMotion(actNum);
 			break;
 		case 37:
 			ElevatorDoor ed = this.GetComponent<ElevatorDoor>();
