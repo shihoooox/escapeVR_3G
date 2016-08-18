@@ -10,7 +10,7 @@ public class MainObjectMenuFrame : MonoBehaviour {
 	public bool onScreen; //これが画面に出ているかどうか
 	public bool isActive; //これが表示されているかどうか
 	public bool isInsideFrame; //フレームの中にいるかどうか
-	private bool isUsed; //アイテムが使われたかどうか
+	public bool isUsed; //アイテムが使われたかどうか
 	public int objectType; //オブジェクト固有の番号
 	private Color originalColor;
 	private GameObject baseChildPos; //-C
@@ -59,9 +59,9 @@ public class MainObjectMenuFrame : MonoBehaviour {
 			if (isInsideFrame && childObject.transform.localScale.x <= 5f) {
 				scaling = false;
 				childObject.transform.localScale = new Vector3(5f, 5f, 5f);
-			} else if (!isInsideFrame && childObject.transform.localScale.x >= 20f) {
+			} else if (!isInsideFrame && childObject.transform.localScale.x >= 22f) {
 				scaling = false;
-				childObject.transform.localScale = new Vector3(20f, 20f, 20f);
+				childObject.transform.localScale = new Vector3(22f, 22f, 22f);
 			}
 
 		}
@@ -137,17 +137,14 @@ public class MainObjectMenuFrame : MonoBehaviour {
 				//baseChildPos更新
 				baseChildPos.transform.position = childObject.transform.position;
 				baseChildPos.transform.rotation = childObject.transform.rotation;
-				baseChildPos.transform.localScale = new Vector3 (7, 7, 7); //大きさを更新
+				baseChildPos.transform.localScale = childObject.transform.localScale + new Vector3(2f, 2f, 2f);
 				this.GetComponent<ObjectMover_2> ().startMoving (childObject, baseChildPos.transform); //移動開始
 
 			} else {
 				//baseChildPos更新
 				baseChildPos.transform.position = childObject.transform.position;
 				baseChildPos.transform.rotation = childObject.transform.rotation;
-				if(isInsideFrame) 
-					baseChildPos.transform.localScale = new Vector3 (5, 5, 5); //大きさを更新
-				else 
-					baseChildPos.transform.localScale = new Vector3 (15, 15, 15); //大きさを更新
+				baseChildPos.transform.localScale = childObject.transform.localScale - new Vector3(2f, 2f, 2f);
 				this.GetComponent<ObjectMover_2> ().startMoving (childObject, baseChildPos.transform); //移動開始
 
 

@@ -90,42 +90,52 @@ public class MainManager : MonoBehaviour {
 
 			//hitしたのがMainObjectMenuFrameなら
 			if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
-				MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
-				MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
-				SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
-				type = frame.objectType;
-				Debug.Log ("P_key pressed, hit type : " + type);
-				if (type > 0) {
-					if (!frame.isSelected) {
-						MomManager.indicateSelected (type);
-						SomManager.indicateSelected (type + 100);
-						selectedObjectNum = type;
-					} else {
-						MomManager.showObjectsDetail (type);
+				//usedでもなく未取得でもなければ実行
+				if (!hit.collider.gameObject.GetComponent<MainObjectMenuFrame>().isUsed &&
+				   hit.collider.gameObject.GetComponent<MainObjectMenuFrame> ().childObject.activeSelf) {
+
+					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
+					MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
+					type = frame.objectType;
+					Debug.Log ("P_key pressed, hit type : " + type);
+					if (type > 0) {
+						if (!frame.isSelected) {
+							MomManager.indicateSelected (type);
+							SomManager.indicateSelected (type + 100);
+							selectedObjectNum = type;
+						} else {
+							MomManager.showObjectsDetail (type);
+						}
 					}
+
 				}
 			}
 
 			//hitしたのがMainObjectMenuInstanceなら
 			else if (hit.collider.gameObject.tag == "MainObjectMenuInstance") {
 
-				Debug.Log ("parentsName: " + hit.collider.gameObject.transform.parent.gameObject.name +
-					", grandParentsName: " + hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.name);
+				//Debug.Log ("parentsName: " + hit.collider.gameObject.transform.parent.gameObject.name +
+				//	", grandParentsName: " + hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.name);
 
 				int targetObjNum = hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<MainObjectMenuFrame> ().objectType;
 				int syntheSizedNum = this.GetComponent<ObjectSynthesizer>().synthesizeInMenu(targetObjNum, selectedObjectNum);
-				Debug.Log ("合成 target: " + targetObjNum + " - selected: " + selectedObjectNum + " => " + syntheSizedNum);
-				//MOMのオブジェクト削除
-				MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (targetObjNum);
-				MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
+				//Debug.Log ("合成 target: " + targetObjNum + " - selected: " + selectedObjectNum + " => " + syntheSizedNum);
 
-				//SOMのオブジェクト削除
-				SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (targetObjNum+100);
-				SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum+100);
+				//もしnull(-2)でなければ合成処理
+				if (syntheSizedNum != -2) {
+					//MOMのオブジェクト削除
+					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (targetObjNum);
+					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 
-				//Object表示
-				MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (syntheSizedNum);
-				SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (syntheSizedNum+100);
+					//SOMのオブジェクト削除
+					SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (targetObjNum + 100);
+					SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
+
+					//Object表示
+					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (syntheSizedNum);
+					SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (syntheSizedNum + 100);
+				}
 			}
 
 			//hitしたのがMarkerなら

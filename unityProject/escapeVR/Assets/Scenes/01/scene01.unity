@@ -1739,9 +1739,11 @@ MonoBehaviour:
   onScreen: 0
   isActive: 1
   isInsideFrame: 0
+  isUsed: 0
   objectType: 1
   menu_normal: []
   menu_noItem: []
+  menu_used: []
 --- !u!23 &628364973
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3392,9 +3394,11 @@ MonoBehaviour:
   onScreen: 0
   isActive: 0
   isInsideFrame: 0
+  isUsed: 0
   objectType: 4
   menu_normal: []
   menu_noItem: []
+  menu_used: []
 --- !u!23 &1094087900
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3673,9 +3677,11 @@ MonoBehaviour:
   onScreen: 0
   isActive: 1
   isInsideFrame: 0
+  isUsed: 0
   objectType: 2
   menu_normal: []
   menu_noItem: []
+  menu_used: []
 --- !u!23 &1181790699
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5461,9 +5467,11 @@ MonoBehaviour:
   onScreen: 0
   isActive: 0
   isInsideFrame: 0
+  isUsed: 0
   objectType: 3
   menu_normal: []
   menu_noItem: []
+  menu_used: []
 --- !u!23 &1467140358
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5803,9 +5811,11 @@ MonoBehaviour:
   onScreen: 0
   isActive: 0
   isInsideFrame: 0
+  isUsed: 0
   objectType: 5
   menu_normal: []
   menu_noItem: []
+  menu_used: []
 --- !u!23 &1727672626
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -45,11 +45,9 @@ public class SubObjectMenuFrame : MonoBehaviour {
 		
 		if(isSelected != selected){
 			if (selected) {
-				Color c = Color.red;
-				c.a = 0.6f;
-				GetComponent<Renderer> ().material.SetColor ("_Color", c);
+				GetComponent<Renderer> ().material.SetColor ("_EmissionColor", Color.red); //とりあえず選択されてたら赤くしとく
 			} else {
-				GetComponent<Renderer> ().material.SetColor ("_Color", originalColor);
+				GetComponent<Renderer> ().material.SetColor ("_EmissionColor", Color.black); //とりあえず（以下略
 			}
 			isSelected = selected;
 		}
