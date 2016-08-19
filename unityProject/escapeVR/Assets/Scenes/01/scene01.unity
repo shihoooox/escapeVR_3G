@@ -28467,6 +28467,10 @@ Prefab:
       propertyPath: m_TagString
       value: ObjectOnGame
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011553124712, guid: 4a20d56651eb140a3831661c82370aef, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a20d56651eb140a3831661c82370aef, type: 2}
   m_IsPrefabParent: 0

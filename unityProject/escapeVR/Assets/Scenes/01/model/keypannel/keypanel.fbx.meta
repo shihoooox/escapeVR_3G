@@ -48,6 +48,8 @@ ModelImporter:
     2300016: Cube.003_MeshPart3
     2300018: Cube.003_MeshPart4
     2300020: Cube.004
+    2300022: Cube.001
+    2300024: Cube.003
     3300000: BezierCurve
     3300002: Cube
     3300004: Cube.001_MeshPart0
@@ -59,6 +61,8 @@ ModelImporter:
     3300016: Cube.003_MeshPart3
     3300018: Cube.003_MeshPart4
     3300020: Cube.004
+    3300022: Cube.001
+    3300024: Cube.003
     4300000: Cube.004
     4300002: Cube.002
     4300004: BezierCurve
@@ -70,6 +74,8 @@ ModelImporter:
     4300016: Cube.003_MeshPart2
     4300018: Cube.003_MeshPart3
     4300020: Cube.003_MeshPart4
+    4300022: Cube.001
+    4300024: Cube.003
   materials:
     importMaterials: 1
     materialName: 0
