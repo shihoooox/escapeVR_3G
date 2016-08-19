@@ -6,9 +6,16 @@ public class MainManager : MonoBehaviour {
 	public GameObject MainObjectMenuManager_G; //MainObjectMenuManagerのGameObject
 	public GameObject SubObjectMenuManager_G; //SubObjectMenuManagerのGameObject
 	public GameObject MarkerManager_G; //MarkerManagerのGameObject
+	public GameObject TextureManager_G; //TextureManagerのgameObject
+	public GameObject ObjectOnGameManager_G; //ObjectOnGameManagerのgameObject
+	public GameObject audioPlayer01;
+
+	private int selectedObjectNum;
+
 	// Use this for initialization
 	void Start () {
-		
+		selectedObjectNum = -2;
+
 	}
 	
 	// Update is called once per frame
@@ -36,21 +43,27 @@ public class MainManager : MonoBehaviour {
 
 
 
+	public TextureManager getTextureManager() {
+		return this.TextureManager_G.GetComponent<TextureManager> ();
+	}
 
 
 	void eachFrame() {
-		Vector3 pos_ = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 		Ray ray_ = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit_;
-		int MarkerObjectType = -2;
+		int focusObjectType = -2;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
 			GameObject tmp = hit_.collider.gameObject;
 			//Debug.Log ("ray : " + tmp.name + " " + tmp.transform.position);
 			if (tmp.tag == "Marker") {
-				MarkerObjectType = tmp.GetComponent<MarkerInstance> ().objectType;
+				focusObjectType = tmp.GetComponent<MarkerInstance> ().objectType;
+			} else if(tmp.tag == "MainObjectMenuFrame") {
+
+				focusObjectType = tmp.GetComponent<MainObjectMenuFrame> ().objectType;
 			}
 		}
-		MarkerManager_G.GetComponent<MarkerManager> ().focus (MarkerObjectType);
+		MarkerManager_G.GetComponent<MarkerManager> ().focus (focusObjectType);
+		MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().focus (focusObjectType);
 	}
 
 	void pressKeyDown_Q() {
@@ -69,42 +82,93 @@ public class MainManager : MonoBehaviour {
 
 	void pressKeyDown_W() {
 		Debug.Log ("W pressed");
-		Vector3 pos = new Vector3 (Screen.width / 2.0f, Screen.height / 2.0f, 0);
 		Ray ray = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit;
 		if (Physics.Raycast (ray, out hit, 100.0f)) {
-			int type = -1; //衝突したobjectType
+			int type = -2; //衝突したobjectType
 
-			//hitしたのがMainObjectMenu系なら
+			Debug.Log ("hit type : " + hit.collider.gameObject.tag + ", name : " + hit.collider.gameObject.name);
+
+			//hitしたのがMainObjectMenuFrameなら
 			if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
-				MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
-				MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
-				SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager>();
-				type = frame.objectType;
-				Debug.Log ("P_key pressed, hit type : " + type);
-				if (type > 0) {
-					if (!frame.isSelected) {
-						MomManager.indicateSelected (type);
-						SomManager.indicateSelected (type+100);
-					} else {
-						MomManager.showObjectsDetail (type);
+				//usedでもなく未取得でもなければ実行
+				if (!hit.collider.gameObject.GetComponent<MainObjectMenuFrame> ().isUsed &&
+				    hit.collider.gameObject.GetComponent<MainObjectMenuFrame> ().childObject.activeSelf) {
+
+					MainObjectMenuFrame frame = hit.collider.gameObject.GetComponent<MainObjectMenuFrame> (); //objectTypeを知るためにframeのインスタンス取得
+					MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
+					SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
+					type = frame.objectType;
+					Debug.Log ("P_key pressed, hit type : " + type);
+					if (type > 0) {
+						if (!frame.isSelected) {
+							MomManager.indicateSelected (type);
+							SomManager.indicateSelected (type + 100);
+							selectedObjectNum = type;
+						} else {
+							MomManager.showObjectsDetail (type);
+						}
 					}
+
 				}
 			}
+
+			//hitしたのがMainObjectMenuInstanceなら
+			else if (hit.collider.gameObject.tag == "MainObjectMenuInstance") {
+
+				//Debug.Log ("parentsName: " + hit.collider.gameObject.transform.parent.gameObject.name +
+				//	", grandParentsName: " + hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.name);
+
+				int targetObjNum = hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject.GetComponent<MainObjectMenuFrame> ().objectType;
+				int syntheSizedNum = this.GetComponent<ObjectSynthesizer> ().synthesizeInMenu (targetObjNum, selectedObjectNum);
+				//Debug.Log ("合成 target: " + targetObjNum + " - selected: " + selectedObjectNum + " => " + syntheSizedNum);
+
+				//もしnull(-2)でなければ合成処理
+				if (syntheSizedNum != -2) {
+					//MOMのオブジェクト削除
+					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (targetObjNum);
+					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
+
+					//SOMのオブジェクト削除
+					SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (targetObjNum + 100);
+					SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
+
+					//Object表示
+					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (syntheSizedNum);
+					SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (syntheSizedNum + 100);
+				}
+			}
+
 			//hitしたのがMarkerなら
-			else if(hit.collider.gameObject.tag == "Marker") {
+			else if (hit.collider.gameObject.tag == "Marker") {
 				MarkerInstance instance = hit.collider.gameObject.GetComponent<MarkerInstance> ();
-				MarkerManager manager =  MarkerManager_G.GetComponent<MarkerManager> ();
+				MarkerManager manager = MarkerManager_G.GetComponent<MarkerManager> ();
 				type = instance.objectType;
-				Debug.Log("move to " + type);
+				Debug.Log ("move to " + type);
 				manager.moveTo (type);
+			}
+
+			//hitしたのがObjectOnGameなら
+			else if (hit.collider.gameObject.tag == "ObjectOnGame") {
+				int hitObjectNum = hit.collider.gameObject.GetComponent<ObjectOnGame> ().objectType; //hitしたObjNumを保存
+				int staticActNum = ObjectOnGameManager.getStaticActNumFromObjectType (hitObjectNum, hit.collider.gameObject); //もし決まったactNumを保存
+
+				if (staticActNum == -3) { //取得可能なオブジェクトの場合
+					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().unsetObject(hitObjectNum);
+					this.MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (hitObjectNum);
+					this.SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (hitObjectNum+100);
+				} else if (staticActNum != -2) { //決まったactNumがあれば(-2でなければ)それを実行
+					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().motion (hitObjectNum, staticActNum);
+				} else {
+
+				}
+
 			}
 		}
 	}
 
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
-		SubObjectMenuManager manager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
-		manager.unsetObject (101);
+		audioPlayer01.GetComponent<AudioPlayer> ().play(true);
 	}
 }

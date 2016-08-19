@@ -6,25 +6,27 @@ public class MainObjectMenuManager : MonoBehaviour {
 
 	public GameObject inCamera;
 	public GameObject outCamera;
-	public GameObject tmp1;//アイテム数だけある　addする
-	public GameObject tmp2;
-	public GameObject tmp3;
-	public GameObject tmp4;
-	public GameObject tmp5;
 	public List<GameObject> frameList = new List<GameObject>(); 
-	private List<int> activeForms = new List<int>(); // アクティブになってるフォームを表示する
 	private int selectedObjectType; //選択されているobjectTypeを保持する、なければ-1
 
 	// Use this for initialization
 	void Start () {
-		frameList.Add (tmp1);
-		frameList.Add (tmp2);
-		frameList.Add (tmp3);
-		frameList.Add (tmp4);
-		frameList.Add (tmp5);
+
+		foreach (Transform child in this.transform) {
+			if(!child.name.Contains("detail")) frameList.Add (child.gameObject);
+		}
 
 		selectedObjectType = -1;
-		Debug.Log ("MainObjectMenuManagerは未完成です");
+		//Debug.Log ("MainObjectMenuManagerは未完成です");
+
+		foreach (GameObject frame in frameList) {
+			frame.GetComponent<MainObjectMenuFrame>().menu_normal = 
+				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_normal;
+			frame.GetComponent<MainObjectMenuFrame>().menu_noItem = 
+				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_noItem;
+			frame.GetComponent<MainObjectMenuFrame>().menu_used = 
+				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_used;
+		}
 
 	}
 	
@@ -47,7 +49,7 @@ public class MainObjectMenuManager : MonoBehaviour {
 		for (int i = 0; i < frameList.Count; i++) {
 			MainObjectMenuFrame tmp = frameList[i].GetComponent<MainObjectMenuFrame> ();
 			if (tmp.objectType == objectType) {
-				tmp.appear(false);
+				tmp.used(true);
 			}
 		}
 	}
@@ -55,6 +57,14 @@ public class MainObjectMenuManager : MonoBehaviour {
 	// メニューを画面から外す
 	public void moveMenuForm(bool toHome){
 		//何の処理かわからんので一応放置、MoveToScreenで間に合うのでは？ by Okamoto
+	}
+
+	public void focus(int objectType) {
+		for (int i = 0; i < frameList.Count; i++) {
+			frameList [i].GetComponent<MainObjectMenuFrame> ().pointOver (
+				objectType == frameList[i].GetComponent<MainObjectMenuFrame>().objectType
+			);
+		}
 	}
 
 	// アイテムを全部デセレクトしてからobjectTypeのアイテムをセレクトする。
@@ -70,8 +80,6 @@ public class MainObjectMenuManager : MonoBehaviour {
 
 	// セレクトされてるアイテムの詳細を表示する
 	public void showObjectsDetail(int objectType){
-		Debug.Log ("Called showObjectsDetail with type : " + objectType);
-		Debug.Log ("Selected Object is : " + selectedObjectType);
 		for (int i = 0; i < frameList.Count; i++) {
 			MainObjectMenuFrame frame = frameList[i].GetComponent<MainObjectMenuFrame> ();
 			if(frame.objectType == objectType || !frame.isInsideFrame) 
@@ -81,7 +89,7 @@ public class MainObjectMenuManager : MonoBehaviour {
 
 	// 個々のモーションがあればframeListからobjectTypeのオブジェクトのmakeActを 呼び出す
 	public void extraMotion(int objectType, int actNum){
-		Debug.Log ("未完成です");
+		Debug.Log ("extraMotionは未完成です");
 		for (int i = 0; i < frameList.Count; i++) {
 			MainObjectMenuFrame tmp = frameList[i].GetComponent<MainObjectMenuFrame> ();
 			if (tmp.objectType == objectType) {

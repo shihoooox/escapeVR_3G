@@ -3,28 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SubObjectMenuManager : MonoBehaviour {
-
 	public GameObject inCamera;
 	public GameObject outCamera;
-	public GameObject tmp1;//アイテム数だけある　addする
-	public GameObject tmp2;
-	public GameObject tmp3;
-	public GameObject tmp4;
-	public GameObject tmp5;
 	public List<GameObject> frameList = new List<GameObject>(); 
-	private int selectedObjectType; //選択されているobjectTypeを保持する、なければ-1
+	private int selectedObjectType; //選択されているobjectTypeを保持する、なければ-2
 
 	// Use this for initialization
 	void Start () {
-		frameList.Add (tmp1);
-		frameList.Add (tmp2);
-		frameList.Add (tmp3);
-		frameList.Add (tmp4);
-		frameList.Add (tmp5);
 
-		selectedObjectType = -1;
-		Debug.Log ("未完成です");
+		foreach (Transform child in this.transform) {
+			frameList.Add (child.gameObject);
+		}
 
+		selectedObjectType = -2;
+		//Debug.Log ("未完成です");
+
+		foreach (GameObject frame in frameList) {
+			frame.GetComponent<SubObjectMenuFrame>().menu_normal = 
+				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_normal;
+			frame.GetComponent<SubObjectMenuFrame>().menu_noItem = 
+				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_noItem;
+			frame.GetComponent<SubObjectMenuFrame>().menu_used = 
+				this.transform.root.gameObject.GetComponent<MainManager> ().getTextureManager ().menu_used;
+		}
 	}
 	
 	// Update is called once per frame
@@ -40,7 +41,7 @@ public class SubObjectMenuManager : MonoBehaviour {
 			if (tmp.objectType == objectType) {
 				tmp.appear(true);
 			}
-			tmp.isActive = tmp.objectType == objectType;
+			//tmp.isActive = tmp.objectType == objectType;
 		}
 	}
 
@@ -49,9 +50,9 @@ public class SubObjectMenuManager : MonoBehaviour {
 		for (int i = 0; i < frameList.Count; i++) {
 			SubObjectMenuFrame tmp = frameList[i].GetComponent<SubObjectMenuFrame> ();
 			if (tmp.objectType == objectType) {
-				tmp.appear(false);
+				tmp.used(true);
 			}
-			tmp.isActive = tmp.objectType == objectType;
+			//tmp.isActive = tmp.objectType == objectType;
 		}
 	}
 
