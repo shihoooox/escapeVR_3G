@@ -2593,7 +2593,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5cf63f385a36346c889f2e4478ac4dea, type: 2}
+  - {fileID: 2100000, guid: 5dcc23beb28854fbd9205a65a077220d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4189,19 +4189,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: d63417b410c9241c9a7c6b19db2a6629, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.62433827
+      value: 0.6243382
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: d63417b410c9241c9a7c6b19db2a6629, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.62433827
+      value: 0.6243382
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: d63417b410c9241c9a7c6b19db2a6629, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.33196658
+      value: -0.33196655
       objectReference: {fileID: 0}
     - target: {fileID: 400144, guid: d63417b410c9241c9a7c6b19db2a6629, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.33196658
+      value: -0.33196655
       objectReference: {fileID: 0}
     - target: {fileID: 400410, guid: d63417b410c9241c9a7c6b19db2a6629, type: 3}
       propertyPath: m_LocalPosition.z
