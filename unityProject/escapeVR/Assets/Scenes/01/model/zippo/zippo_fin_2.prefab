@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 433094}
   m_Layer: 0
-  m_Name: Sphere.001
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 448478}
   m_Layer: 0
-  m_Name: Cylinder.001
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 470490}
   m_Layer: 0
-  m_Name: Cylinder.004
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400660}
   m_Layer: 0
-  m_Name: Sphere.002
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 418600}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 419528}
   m_Layer: 0
-  m_Name: Cube.012
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 475674}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 431686}
   m_Layer: 0
-  m_Name: Cube.013
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458852}
   m_Layer: 0
-  m_Name: Cylinder.005
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 419124}
   m_Layer: 0
-  m_Name: ke-su
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +279,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 488622}
   m_Layer: 0
-  m_Name: nakami
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1015,7 +1015,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 499526}
   m_Layer: 0
-  m_Name: Cube.015
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1030,7 +1030,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458812}
   m_Layer: 0
-  m_Name: taiya
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1075,7 +1075,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437464}
   m_Layer: 0
-  m_Name: Cylinder.003
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1120,7 +1120,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 489340}
   m_Layer: 0
-  m_Name: Sphere.003
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1165,7 +1165,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 486390}
   m_Layer: 0
-  m_Name: Cylinder.002
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1225,7 +1225,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 408304}
   m_Layer: 0
-  m_Name: Cube.011
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1270,7 +1270,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 411154}
   m_Layer: 0
-  m_Name: huta
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1300,7 +1300,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 477024}
   m_Layer: 0
-  m_Name: Lamp
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,7 +1375,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 460576}
   m_Layer: 0
-  m_Name: Cube.010
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1390,7 +1390,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 446060}
   m_Layer: 0
-  m_Name: Cube.014
+  m_Name: zippo_fin_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
