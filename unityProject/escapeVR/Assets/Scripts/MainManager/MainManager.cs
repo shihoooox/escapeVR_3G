@@ -151,7 +151,7 @@ public class MainManager : MonoBehaviour {
 			//hitしたのがObjectOnGameなら
 			else if (hit.collider.gameObject.tag == "ObjectOnGame") {
 				int hitObjectNum = hit.collider.gameObject.GetComponent<ObjectOnGame> ().objectType; //hitしたObjNumを保存
-				int staticActNum = ObjectOnGameManager.getStaticActNumFromObjectType (hitObjectNum, hit.collider.gameObject); //もし決まったactNumを保存
+				int staticActNum = ObjectOnGameManager.getStaticActNumFromObjectType (hitObjectNum, hit.collider.gameObject); //決まったactNumを保存
 
 				if (staticActNum == -3) { //取得可能なオブジェクトの場合
 					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().unsetObject(hitObjectNum);

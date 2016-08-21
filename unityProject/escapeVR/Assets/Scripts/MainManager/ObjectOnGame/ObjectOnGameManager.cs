@@ -46,7 +46,8 @@ public class ObjectOnGameManager : MonoBehaviour {
 
 	public static int getStaticActNumFromObjectType(int objectType, GameObject gameObject) {
 
-		if (objectType == 8) //zippo
+		if (objectType == 1 || objectType == 2 || objectType == 3 || objectType == 4 || objectType == 5 || objectType == 6
+			|| objectType == 7 || objectType == 8) //zippo
 			return -3;
 		else if (objectType == 16)
 			return 5;

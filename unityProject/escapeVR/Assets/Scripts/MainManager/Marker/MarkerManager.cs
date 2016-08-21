@@ -21,9 +21,9 @@ public class MarkerManager : MonoBehaviour {
 	public void focus(int objectType) {
 		for (int i = 0; i < markers.Count; i++) {
 			if (markers [i].GetComponent<MarkerInstance> ().objectType == objectType) {
-				markers[i].GetComponent<Renderer> ().material.color = Color.red;
+				markers [i].GetComponent<MarkerInstance> ().isFocusOn = true;
 			} else {
-				markers[i].GetComponent<Renderer> ().material.color = Color.white;
+				markers [i].GetComponent<MarkerInstance> ().isFocusOn = false;
 			}
 		}
 	}
@@ -34,6 +34,7 @@ public class MarkerManager : MonoBehaviour {
 				ObjectMover om = this.GetComponent<ObjectMover> ();
 				Cm cameraManager = Camera.main.gameObject.GetComponent<Cm> ();
 				om.startMoving (cameraManager.c, markers [i].GetComponent<MarkerInstance> ().getDirectionLocation());
+				break;
 			}
 		}
 	}
