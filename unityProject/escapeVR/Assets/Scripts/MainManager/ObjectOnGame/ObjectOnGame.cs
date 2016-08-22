@@ -60,12 +60,12 @@ public class ObjectOnGame : MonoBehaviour {
 			aic.forInstanceMotion(actNum);
 			break;
 		case 12:
-			Candle candle = this.GetComponent<Candle>();
-			candle.forInstanceMotion(actNum);
-			break;
-		case 13:
 			Plate plate = this.GetComponent<Plate>();
 			plate.forInstanceMotion(actNum);
+			break;
+		case 13:
+			Candle candle = this.GetComponent<Candle>();
+			candle.forInstanceMotion(actNum);
 			break;
 		case 14:
 			BilliardCue bc = this.GetComponent<BilliardCue>();

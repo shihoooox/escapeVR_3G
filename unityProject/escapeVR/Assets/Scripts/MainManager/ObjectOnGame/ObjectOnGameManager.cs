@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class ObjectOnGameManager : MonoBehaviour {
 
 	public List<GameObject> itemList;
+	private int pastFocusObjectNum = -2;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,7 @@ public class ObjectOnGameManager : MonoBehaviour {
 			ObjectOnGame tmp = itemList[i].GetComponent<ObjectOnGame> ();
 			if (tmp.objectType == objectType) {
 				tmp.actOnDetail(actNum);
+				return;
 			}
 		}
 	}
@@ -44,13 +46,25 @@ public class ObjectOnGameManager : MonoBehaviour {
 		}
 	}
 
+	public void focus(int objectNum) {
+		//Debug.Log ("focus: " + objectNum);
+		if (pastFocusObjectNum == 16 && objectNum != 16 && objectNum != 5) {//冷蔵庫が視界からはずれたらドアを閉める
+			Debug.Log ("close fridge");
+			this.motion (16, 6);
+		}
+			
+		pastFocusObjectNum = objectNum;
+	}
+
 	public static int getStaticActNumFromObjectType(int objectType, GameObject gameObject) {
 
 		if (objectType == 1 || objectType == 2 || objectType == 3 || objectType == 4 || objectType == 5 || objectType == 6
-			|| objectType == 7 || objectType == 8) //zippo
+		    || objectType == 7 || objectType == 8) //zippo
 			return -3;
-		else if (objectType == 16)
-			return 5;
+		else if (objectType == 16) {
+			if (!gameObject.GetComponent<RefrigeratorDoor> ().isLocked)
+				return 5;
+		}
 
 		else if (objectType == 23) //エレベータの階級ボタン光らすだけ
 			gameObject.GetComponent<ObjectOnGame> ().actOnDetail (3);
