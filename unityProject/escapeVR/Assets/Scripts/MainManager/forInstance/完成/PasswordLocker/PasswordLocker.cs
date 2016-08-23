@@ -6,10 +6,10 @@ public class PasswordLocker : MonoBehaviour {
 
 	private Renderer _renderer;
 
-	private int num1;
-	private int num2;
-	private int num3;
-	private int num4;
+	private int num1 = -1;
+	private int num2 = -1;
+	private int num3 = -1;
+	private int num4 = -1;
 
 	private float lightSpeed = 0.2f;
 
@@ -127,7 +127,7 @@ public class PasswordLocker : MonoBehaviour {
 		num2 = num3;
 		num3 = num4;
 		num4 = num;
-		if (num1 == 0 && num2 == 2 && num3 == 7 && num4 == 0) {
+		if (num1 == 0 && num2 == 0 && num3 == 0 && num4 == 0) {
 			Debug.Log ("シャッター開錠");
 			Shutter sh = shutter.GetComponent<Shutter> ();
 			sh.forInstanceMotion (1);

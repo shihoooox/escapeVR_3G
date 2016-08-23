@@ -60,9 +60,10 @@ public class Lighter : MonoBehaviour {
 			return;
 		} else if(actNum == 4) { //開いてつけて鎮火してを繰り返す
 			if (!isNowOpen) {
-				this.forInstanceMotion (1);
-			} else if (isNowOpen && !fireing) {
 				this.forInstanceMotion (2);
+				isNowOpen = true;
+			} else if (isNowOpen && !fireing) {
+				this.forInstanceMotion (1);
 				fireing = true;
 			} else if(isNowOpen && fireing) {
 				this.forInstanceMotion (3);

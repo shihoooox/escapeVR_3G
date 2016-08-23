@@ -147,6 +147,15 @@ public class MainManager : MonoBehaviour {
 				} else {
 					if (targetObjNum == 8) {//ライターだったら
 						hit.collider.gameObject.GetComponent<Lighter> ().forInstanceMotion (4);
+						//Debug.Log ("ライター動作");
+					} else if(targetObjNum == 6) { //カップだったら
+						if (selectedObjectNum == 2) {
+							hit.collider.gameObject.GetComponent<Cup> ().forInstanceMotion (1);// set alcohol
+							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (2);
+						} else if (selectedObjectNum == 7) {
+							hit.collider.gameObject.GetComponent<Cup> ().forInstanceMotion (2); // set lope
+							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (7);
+						}
 					}
 				}
 			}
@@ -188,8 +197,8 @@ public class MainManager : MonoBehaviour {
 						if (selectedObjectNum == 12) {
 							Debug.Log ("パスワード開錠"); //パスワード手動解除未対応（今はパスワードプレートを選択してキーパネルに触れると開錠するしくみになっている）
 							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 0); //パスワードロック解除
-							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 7); //パスワードロック解除
-							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 2); //パスワードロック解除
+							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 0); //パスワードロック解除
+							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 0); //パスワードロック解除
 							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 0); //パスワードロック解除
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
