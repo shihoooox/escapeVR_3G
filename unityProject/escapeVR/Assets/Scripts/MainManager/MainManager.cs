@@ -152,9 +152,11 @@ public class MainManager : MonoBehaviour {
 						if (selectedObjectNum == 2) {
 							hit.collider.gameObject.GetComponent<Cup> ().forInstanceMotion (1);// set alcohol
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (2);
+							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (2+100);
 						} else if (selectedObjectNum == 7) {
 							hit.collider.gameObject.GetComponent<Cup> ().forInstanceMotion (2); // set lope
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (7);
+							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (7+100);
 						}
 					}
 				}

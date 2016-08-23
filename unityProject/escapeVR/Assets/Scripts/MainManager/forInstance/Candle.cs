@@ -17,6 +17,9 @@ public class Candle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*if (Input.GetKeyDown (KeyCode.A)) {
+			this.forInstanceMotion (1);
+		}*/
 	}
 
 	public bool isReadyToFire() {

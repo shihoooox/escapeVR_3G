@@ -21,6 +21,7 @@ public class Ice : MonoBehaviour {
 				target.transform.rotation = this.transform.rotation;
 				target.transform.localScale = new Vector3 (0f, 0f, 0f);
 				this.GetComponent<ObjectMover_2> ().startMoving (this.gameObject, target.transform);
+				countTrigger = false;
 			}
 		}
 	}
