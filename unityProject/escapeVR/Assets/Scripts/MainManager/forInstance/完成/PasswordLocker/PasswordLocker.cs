@@ -37,7 +37,7 @@ public class PasswordLocker : MonoBehaviour {
 	}
 
 	public void forInstanceMotion(int actNum){	
-		if (Input.GetKeyDown(KeyCode.Alpha0)) {
+		if (actNum == 0 /*Input.GetKeyDown(KeyCode.Alpha0)*/) {
 			PasswordKey key = key0.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -45,7 +45,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (0);
-		}else if (Input.GetKeyDown(KeyCode.Alpha1)) {
+		}else if (actNum == 1 /*Input.GetKeyDown(KeyCode.Alpha1)*/) {
 			PasswordKey key = key1.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -53,7 +53,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (1);
-		}else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+		}else if (actNum == 2 /*Input.GetKeyDown(KeyCode.Alpha2)*/) {
 			PasswordKey key = key2.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -61,7 +61,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (2);
-		}else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+		}else if (actNum == 3 /*Input.GetKeyDown(KeyCode.Alpha3)*/) {
 			PasswordKey key = key3.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -69,7 +69,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (3);
-		}else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+		}else if (actNum == 4 /*Input.GetKeyDown(KeyCode.Alpha4)*/) {
 			PasswordKey key = key4.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -77,7 +77,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (4);
-		}else if (Input.GetKeyDown(KeyCode.Alpha5)) {
+		}else if (actNum == 5 /*Input.GetKeyDown(KeyCode.Alpha5)*/) {
 			PasswordKey key = key5.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -85,7 +85,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (5);
-		}else if (Input.GetKeyDown(KeyCode.Alpha6)) {
+		}else if (actNum == 6 /*Input.GetKeyDown(KeyCode.Alpha6)*/) {
 			PasswordKey key = key6.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -93,7 +93,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (6);
-		}else if (Input.GetKeyDown(KeyCode.Alpha7)) {
+		}else if (actNum == 7 /*Input.GetKeyDown(KeyCode.Alpha7)*/) {
 			PasswordKey key = key7.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -101,7 +101,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (7);
-		}else if (Input.GetKeyDown(KeyCode.Alpha8)) {
+		}else if (actNum == 8 /*Input.GetKeyDown(KeyCode.Alpha8)*/) {
 			PasswordKey key = key8.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -109,7 +109,7 @@ public class PasswordLocker : MonoBehaviour {
 					key.kesu();
 				}));
 			push (8);
-		}else if (Input.GetKeyDown(KeyCode.Alpha9)) {
+		}else if (actNum == 9 /*Input.GetKeyDown(KeyCode.Alpha9)*/) {
 			PasswordKey key = key9.GetComponent<PasswordKey> ();
 			key.hikaru ();
 			StartCoroutine(DelayMethod(lightSpeed, () =>
@@ -122,11 +122,13 @@ public class PasswordLocker : MonoBehaviour {
 		
 
 	private void push(int num){
+		Debug.Log ("getCode : " + num);
 		num1 = num2;
 		num2 = num3;
 		num3 = num4;
 		num4 = num;
-		if (num1 == 8 && num2 == 7 && num3 == 2 && num4 == 0) {
+		if (num1 == 0 && num2 == 2 && num3 == 7 && num4 == 0) {
+			Debug.Log ("シャッター開錠");
 			Shutter sh = shutter.GetComponent<Shutter> ();
 			sh.forInstanceMotion (1);
 		}

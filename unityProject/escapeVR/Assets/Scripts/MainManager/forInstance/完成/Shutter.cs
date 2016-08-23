@@ -6,11 +6,11 @@ public class Shutter : MonoBehaviour {
 	//OMもつけてください
 
 	private GameObject target;
-	public GameObject zibun;
+	//public GameObject zibun;
 
 	// Use this for initialization
 	void Start () {
-	
+		target = new GameObject ();
 	}
 	
 	// Update is called once per frame
@@ -20,14 +20,13 @@ public class Shutter : MonoBehaviour {
 	public void forInstanceMotion(int actNum){	
 		if(actNum == 1) {
 			// シャッターを開ける
-			target = new GameObject ();
 			target.transform.position = this.transform.position;
 			Vector3 pos = target.transform.position;
-			pos.y += 4f;
+			pos.y += 3f;
 			target.transform.position = pos;
 
 			ObjectMover om = this.GetComponent<ObjectMover>();
-			om.startMoving (zibun, target);
+			om.startMoving (this.gameObject, target);
 			return;
 		}
 	}

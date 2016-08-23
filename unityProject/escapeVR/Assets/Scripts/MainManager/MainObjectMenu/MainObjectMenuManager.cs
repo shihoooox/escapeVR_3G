@@ -40,6 +40,15 @@ public class MainObjectMenuManager : MonoBehaviour {
 	void Update () {
 	}
 
+	public GameObject getInstance(int in_objectType) {
+		foreach(GameObject eachFrame in frameList) 
+			if (eachFrame.GetComponent<MainObjectMenuFrame> ().objectType == in_objectType) 
+				foreach (Transform eachInstance_1 in eachFrame.transform)
+					foreach (Transform eachInstance_2 in eachInstance_1)
+						return eachInstance_2.gameObject;
+		return null;
+	}
+
 	public void moveMarker(int markerNum) {
 
 		if (currentMarkerNum != markerNum) {

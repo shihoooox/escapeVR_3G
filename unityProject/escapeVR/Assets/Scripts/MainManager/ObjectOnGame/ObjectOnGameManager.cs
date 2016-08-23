@@ -66,6 +66,10 @@ public class ObjectOnGameManager : MonoBehaviour {
 				return 5;
 		}
 
+		//パスワードロッカーのキーだったら、キーの番号をreturnする
+		else if (objectType == 19)
+			return -2;//return gameObject.GetComponent<PasswordKey> ().keyCode; //簡易的に-2を返す（動作はMainManagerのpressKeyDown_W()メソッド参照）
+
 		else if (objectType == 23) //エレベータの階級ボタン光らすだけ
 			gameObject.GetComponent<ObjectOnGame> ().actOnDetail (3);
 

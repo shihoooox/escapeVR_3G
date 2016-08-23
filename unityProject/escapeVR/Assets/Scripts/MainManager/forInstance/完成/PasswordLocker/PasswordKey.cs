@@ -6,6 +6,8 @@ public class PasswordKey : MonoBehaviour {
 	// 光らせるためのスクリプト
 	// 数字のとこにつけてね
 
+	public int keyCode;
+
 	private Renderer _renderer;
 
 	// Use this for initialization
@@ -18,12 +20,12 @@ public class PasswordKey : MonoBehaviour {
 	}
 
 	public void hikaru(){	
-		_renderer.material.EnableKeyword("_EMISSION");
-		_renderer.material.SetColor ("_EmissionColor", new Color (1, 1, 1));
+		_renderer.material.EnableKeyword("_Color");
+		_renderer.material.SetColor ("_Color", new Color(0f, 0f, 0f, 0.5f));
 	}
 
 	public void kesu(){
-		_renderer.material.EnableKeyword("_EMISSION");
-		_renderer.material.SetColor ("_EmissionColor", new Color (0, 0, 0));
+		_renderer.material.EnableKeyword("_Color");
+		_renderer.material.SetColor ("_Color", new Color(0f, 0f, 0f, 0f));
 	}	
 }

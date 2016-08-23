@@ -144,6 +144,10 @@ public class MainManager : MonoBehaviour {
 					//変化後のObject表示
 					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (syntheSizedNum);
 					SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (syntheSizedNum + 100);
+				} else {
+					if (targetObjNum == 8) {//ライターだったら
+						hit.collider.gameObject.GetComponent<Lighter> ().forInstanceMotion (4);
+					}
 				}
 			}
 
@@ -162,9 +166,9 @@ public class MainManager : MonoBehaviour {
 				int staticActNum = ObjectOnGameManager.getStaticActNumFromObjectType (hitObjectNum, hit.collider.gameObject); //決まったactNumを保存
 
 				if (staticActNum == -3) { //取得可能なオブジェクトの場合
-					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().unsetObject(hitObjectNum);
+					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().unsetObject (hitObjectNum);
 					this.MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (hitObjectNum);
-					this.SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (hitObjectNum+100);
+					this.SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (hitObjectNum + 100);
 				} else if (staticActNum != -2) { //決まったactNumがあれば(-2でなければ)それを実行
 					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().motion (hitObjectNum, staticActNum);
 				} else {
@@ -178,6 +182,37 @@ public class MainManager : MonoBehaviour {
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
 						}
 					}
+
+					//パスワードロッカー
+					if (hitObjectNum == 19) {
+						if (selectedObjectNum == 12) {
+							Debug.Log ("パスワード開錠"); //パスワード手動解除未対応（今はパスワードプレートを選択してキーパネルに触れると開錠するしくみになっている）
+							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 0); //パスワードロック解除
+							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 7); //パスワードロック解除
+							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 2); //パスワードロック解除
+							this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager>().motion(hitObjectNum, 0); //パスワードロック解除
+							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
+							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
+						}
+					}
+
+					//キャンドル
+					if (hitObjectNum == 38) {
+						if (selectedObjectNum == 6 && MainObjectMenuManager_G.GetComponent<MainObjectMenuManager>().getInstance(6).GetComponent<Cup>().isReadyToFire()) { //アルコールランプ（小さいコップ設置）
+							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
+							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
+							hit.collider.gameObject.GetComponent<Candle>().forInstanceMotion(2);
+						} else if (selectedObjectNum == 5) { //アルコールランプ（小さいコップ設置）
+							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
+							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
+							hit.collider.gameObject.GetComponent<Candle>().forInstanceMotion(3);
+						} else if (selectedObjectNum == 8 && MainObjectMenuManager_G.GetComponent<MainObjectMenuManager>().getInstance(8).GetComponent<Lighter>().isReadyToFile()) { //燃やす
+							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
+							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
+							hit.collider.gameObject.GetComponent<Candle>().forInstanceMotion(1);
+						}
+					}
+
 
 				}
 
