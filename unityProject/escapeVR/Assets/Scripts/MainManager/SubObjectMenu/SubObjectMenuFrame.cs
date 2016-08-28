@@ -16,6 +16,9 @@ public class SubObjectMenuFrame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		Debug.Log (System.IO.Directory.GetCurrentDirectory());
+
 		isSelected = false;
 		isUsed = false;
 		onScreen = false;
@@ -37,7 +40,7 @@ public class SubObjectMenuFrame : MonoBehaviour {
 			else
 				this.GetComponent<Renderer> ().material.mainTexture = menu_used [(int)gifNum];
 		} else 
-			this.GetComponent<Renderer> ().material.mainTexture = menu_noItem [(int)gifNum];
+			this.GetComponent<Renderer> ().material.mainTexture = menu_used [(int)gifNum];//menu_noItem [(int)gifNum];
 	}
 
 
