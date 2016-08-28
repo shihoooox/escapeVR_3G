@@ -9,14 +9,19 @@ public class screenRec : MonoBehaviour {
 	public float animationLengthSec;
 	public bool autoRecord;
 	public bool autoEndRecording;
+	public bool press_C_to_capture;
 
 	private int frameCount = -1;
 	private bool recording;
+	private int captureCount = 0;
 
 	// Use this for initialization
 	void Start () {
 		if (autoRecord)
 			this.startRecording ();
+		if(press_C_to_capture) {
+			System.IO.Directory.CreateDirectory ("CaptureOnlyFrame");
+		}
 	}
 	
 	// Update is called once per frame
@@ -25,10 +30,17 @@ public class screenRec : MonoBehaviour {
 		if (recording) 
 			this.recordingPath ();
 
-		if (autoEndRecording)
-			this.endRecordingPath ();
+		if (press_C_to_capture && Input.GetKeyDown (KeyCode.C))
+			this.capturePath();
 
 		Debug.Log ("current frame : " + frameCount);
+	}
+
+	void capturePath() {
+		String name = "CaptureOnlyFrame/capture" + captureCount + ".png";
+		Application.CaptureScreenshot (name, superSize);
+		captureCount++;
+		Debug.Log ("captured in : " + name);
 	}
 
 	void endRecordingPath() {
@@ -40,18 +52,13 @@ public class screenRec : MonoBehaviour {
 	}
 
 	void recordingPath() {
-		if (Input.GetKeyDown (KeyCode.C)) {
-			recording = false;
-			enabled = false;
-		} else {
-			if (frameCount > 0) {
-				String name = "Capture/frame" + frameCount.ToString ("0000") + ".png";
-				Application.CaptureScreenshot (name, superSize);
-			}
-			frameCount++;
-			if (frameCount > 0 && frameCount % 60 == 0) {
-				Debug.Log ((frameCount / 60).ToString() + " seconds elapsed.");
-			}
+		if (frameCount > 0) {
+			String name = "Capture/frame" + frameCount.ToString ("0000") + ".png";
+			Application.CaptureScreenshot (name, superSize);
+		}
+		frameCount++;
+		if (frameCount > 0 && frameCount % 60 == 0) {
+			Debug.Log ((frameCount / 60).ToString() + " seconds elapsed.");
 		}
 	}
 

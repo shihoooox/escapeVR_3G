@@ -40,7 +40,7 @@ public class SubObjectMenuFrame : MonoBehaviour {
 			else
 				this.GetComponent<Renderer> ().material.mainTexture = menu_used [(int)gifNum];
 		} else 
-			this.GetComponent<Renderer> ().material.mainTexture = menu_used [(int)gifNum];//menu_noItem [(int)gifNum];
+			this.GetComponent<Renderer> ().material.mainTexture = menu_noItem [(int)gifNum];
 	}
 
 
