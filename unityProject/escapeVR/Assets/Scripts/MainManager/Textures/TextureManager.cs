@@ -6,6 +6,7 @@ public class TextureManager : MonoBehaviour {
 	public Texture[] menu_normal;
 	public Texture[] menu_noItem;
 	public Texture[] menu_used;
+	public Texture[] menu_selected;
 	// Use this for initialization
 	void Start () {
 		

@@ -95,6 +95,12 @@ ModelImporter:
     2300042: Sphere_MeshPart1
     2300044: Sphere_MeshPart2
     2300046: Sphere_MeshPart3
+    2300048: Cylinder
+    2300050: Cylinder.001
+    2300052: Sphere
+    2300054: Sphere.001
+    2300056: Sphere.002
+    2300058: Sphere.003
     3300000: BezierCurve
     3300002: Cube.001
     3300004: Cylinder.001_MeshPart0
@@ -119,6 +125,12 @@ ModelImporter:
     3300042: Sphere_MeshPart1
     3300044: Sphere_MeshPart2
     3300046: Sphere_MeshPart3
+    3300048: Cylinder
+    3300050: Cylinder.001
+    3300052: Sphere
+    3300054: Sphere.001
+    3300056: Sphere.002
+    3300058: Sphere.003
     4300000: Sphere.003_MeshPart0
     4300002: Sphere.003_MeshPart1
     4300004: Sphere.003_MeshPart2
@@ -143,6 +155,12 @@ ModelImporter:
     4300042: Cylinder_MeshPart0
     4300044: Cylinder_MeshPart1
     4300046: Cylinder_MeshPart2
+    4300048: Sphere.003
+    4300050: Sphere.002
+    4300052: Sphere.001
+    4300054: Sphere
+    4300056: Cylinder.001
+    4300058: Cylinder
   materials:
     importMaterials: 1
     materialName: 0

@@ -8,17 +8,36 @@ public class RefrigeratorDoor : MonoBehaviour {
 	public GameObject doorUM; // ドア上右の回転軸になるemptyを入れて
 	public GameObject doorUH; // ドア上左の回転軸になるemptyを入れて
 
-	GameObject in_target_R;
-	GameObject in_target_L;
+	public GameObject ice_gameObject;
+
+	private GameObject in_target_R;
+	private GameObject in_target_L;
+	private bool isOpen = false;
+	public bool isLocked = true;
+	private Quaternion originalRotate_R;
+	private Quaternion originalRotate_L;
+	private bool countTrigger = false;
+	private float count = 0f;
 
 	// Use this for initialization
 	void Start () {
 		in_target_R = new GameObject ();
 		in_target_L = new GameObject ();
+		originalRotate_R = doorUH.transform.rotation;
+		originalRotate_L = doorUM.transform.rotation;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (countTrigger) { //countTriggerがtrueならカウント
+			count += Time.deltaTime;
+			//2秒以上たったら氷のactiveをfalseにする
+			if (count >= 2f) {
+				countTrigger = false;
+				ice_gameObject.SetActive (false);
+			}
+		}
+
 	}
 
 	public void forInstanceMotion(int actNum){	
@@ -43,7 +62,7 @@ public class RefrigeratorDoor : MonoBehaviour {
 
 			in_target_R.transform.position = doorUM.transform.position;
 			in_target_R.transform.rotation = doorUM.transform.rotation;
-			in_target_R.transform.Rotate (0, 150, 0);
+			in_target_R.transform.Rotate (0, -210, 0);
 			in_target_R.transform.localScale = doorUM.transform.localScale;
 			ObjectMover_2 om2 = doorUM.GetComponent<ObjectMover_2> ();
 			om2.startMoving (doorUM, in_target_R.transform);
@@ -69,17 +88,27 @@ public class RefrigeratorDoor : MonoBehaviour {
 
 			in_target_L.transform.position = doorUH.transform.position;
 			in_target_L.transform.rotation = doorUH.transform.rotation;
-			in_target_L.transform.Rotate (0, 150, 0);
+			in_target_L.transform.Rotate (0, -210, 0);
 			in_target_L.transform.localScale = doorUH.transform.localScale;
 			ObjectMover_2 om2 = doorUH.GetComponent<ObjectMover_2> ();
 			om2.startMoving (doorUH, in_target_L.transform);
 			return;
-		} else if (actNum == 5) { //両ドアを開く
-			this.forInstanceMotion (1);
-			this.forInstanceMotion (3);
-		} else if (actNum == 6) { //両ドアを閉じる
-			this.forInstanceMotion (2);
-			this.forInstanceMotion (4);
+		} else if (actNum == 5) { //両ドアを開ける
+			if (!isLocked && !isOpen) {
+				this.forInstanceMotion (1);
+				this.forInstanceMotion (3);
+				isOpen = !isOpen;
+				ice_gameObject.SetActive (true);
+			}
+		} else if (actNum == 6) { //両ドアを閉める
+			if (!isLocked && isOpen) {
+				this.forInstanceMotion (2);
+				this.forInstanceMotion (4);
+				isOpen = !isOpen;
+				countTrigger = true;
+			}
+		} else if (actNum == 7) { //開錠
+			isLocked = false;
 		}
 	}
 }
