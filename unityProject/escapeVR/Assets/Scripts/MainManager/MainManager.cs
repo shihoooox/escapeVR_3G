@@ -9,6 +9,7 @@ public class MainManager : MonoBehaviour {
 	public GameObject TextureManager_G; //TextureManagerのgameObject
 	public GameObject ObjectOnGameManager_G; //ObjectOnGameManagerのgameObject
 	public GameObject audioPlayer01;
+	public int stageNumber;
 
 	private int selectedObjectNum;
 
