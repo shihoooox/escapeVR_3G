@@ -9,8 +9,12 @@ public class TextureManager : MonoBehaviour {
 	public Texture[] menu_selected;
 	// Use this for initialization
 	void Start () {
-		
-
+		/*Debug.Log (System.IO.Directory.Exists("Assets"));
+		for (int i = 0; i < 75; i++) {
+			string textureNum = i < 10 ? "0" + i : i + ""; 
+			menu_used [i] = Resources.Load ("Assets/Texture/menu_used_15/usedObject 2_000" + textureNum + ".png") as Texture;
+		}
+		*/
 
 	}
 	
