@@ -7,9 +7,15 @@ public class TutorialManager : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public bool next(int dialogType) {
+		Debug.Log ("TutorialManager, next()は未完成です");
+
+		return false;
 	}
 }
