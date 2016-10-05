@@ -69,7 +69,7 @@ public class MainManager : MonoBehaviour {
 				focusObjectType = tmp.GetComponent<ObjectOnGame> ().objectType;
 			}
 		}
-		Debug.Log (focusObjectType);
+		//Debug.Log (focusObjectType);
 		MarkerManager_G.GetComponent<MarkerManager> ().focus (focusObjectType);
 		MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().focus (focusObjectType);
 		MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().moveMarker (focusFrameType);
