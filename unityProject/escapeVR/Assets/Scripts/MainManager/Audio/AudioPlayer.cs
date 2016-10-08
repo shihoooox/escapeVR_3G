@@ -17,6 +17,7 @@ public class AudioPlayer : MonoBehaviour {
 	}
 
 	public void play(bool p) {
+		Debug.Log ("play");
 		audioSource.loop = p;
 		audioSource.Play ();
 	}

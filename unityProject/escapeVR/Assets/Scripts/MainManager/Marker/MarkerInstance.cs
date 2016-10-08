@@ -25,7 +25,7 @@ public class MarkerInstance : MonoBehaviour {
 	public GameObject getDirectionLocation() {
 		GameObject tmp = new GameObject ();
 		Vector3 pos = this.transform.position;
-		pos.y = 1.4f;
+		pos.y = 1.5f;
 		tmp.transform.position = pos;
 		tmp.transform.rotation = this.transform.rotation;
 		return tmp;

@@ -8,7 +8,9 @@ public class MainManager : MonoBehaviour {
 	public GameObject MarkerManager_G; //MarkerManagerのGameObject
 	public GameObject TextureManager_G; //TextureManagerのgameObject
 	public GameObject ObjectOnGameManager_G; //ObjectOnGameManagerのgameObject
+	public GameObject TutorialManager_G;
 	public GameObject audioPlayer01;
+	public int stageNumber;
 
 	private int selectedObjectNum;
 
@@ -221,6 +223,17 @@ public class MainManager : MonoBehaviour {
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
 							hit.collider.gameObject.GetComponent<Candle>().forInstanceMotion(1);
+						}
+					}
+
+					//カードパネル
+					if (hitObjectNum == 39) {
+						if (selectedObjectNum == 40) {
+
+							TutorialManager_G.GetComponent<TutorialManager> ().next (1001);
+							//
+							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
+							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
 						}
 					}
 
