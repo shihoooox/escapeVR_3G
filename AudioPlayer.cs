@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class AudioPlayer : MonoBehaviour {
@@ -7,28 +7,23 @@ public class AudioPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//play (1,true,true,1000);
 	}
 	
 	// Update is called once per frame
 	void Update (){
-		
 	}
 
+	private float duration;//nowTime(s)
+
 	void play(int audioID, bool loop, bool play, int delay){
-		AudioSource[] sources = null;
+		AudioSynthesizer audioSynthesizer = AudioSynthesizer_G.GetComponent<AudioSynthesizer> ();
+		AudioSource[] audioSources = audioSynthesizer.getAudioSource (audioID);
 
 		if (play) {
-			AudioSynthesizer audioSource = AudioSynthesizer_G.GetComponent<AudioSynthesizer> ();
-			GameObject o = audioSource.getAudioSource (audioID);
-			sources = o.GetComponents<AudioSource> ();
-			sources [0].loop = loop;
-
 			ulong udelay = (ulong)44.1 * (ulong)delay;
-
-			sources [0].Play (udelay);
+			audioSources [0].Play (udelay);
 		} else {
-			sources [0].Stop ();
+			audioSources [0].Stop ();
 		}
 	}
 
