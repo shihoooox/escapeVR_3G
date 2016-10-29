@@ -7,7 +7,7 @@ public class AudioPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		play (1,true,true,1000);
+		//play (1,true,true,1000);
 	}
 	
 	// Update is called once per frame
