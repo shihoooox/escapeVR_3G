@@ -13,7 +13,6 @@ public class AudioPlayer : MonoBehaviour {
 	void Update (){
 	}
 
-	private float duration;//nowTime(s)
 
 	void play(int audioID, bool loop, bool play, int delay){
 		AudioSynthesizer audioSynthesizer = AudioSynthesizer_G.GetComponent<AudioSynthesizer> ();
