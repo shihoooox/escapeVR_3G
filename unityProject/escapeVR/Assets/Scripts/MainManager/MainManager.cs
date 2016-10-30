@@ -8,8 +8,8 @@ public class MainManager : MonoBehaviour {
 	public GameObject MarkerManager_G; //MarkerManagerのGameObject
 	public GameObject TextureManager_G; //TextureManagerのgameObject
 	public GameObject ObjectOnGameManager_G; //ObjectOnGameManagerのgameObject
-	public GameObject TutorialManager_G;
-	public GameObject audioPlayer01;
+	public GameObject TutorialManager_G; //TutorialManagerのgameObject
+	public GameObject AudioPlayer_G; //AudioPlayerのgameObject
 	public int stageNumber;
 
 	private int selectedObjectNum;
@@ -246,6 +246,6 @@ public class MainManager : MonoBehaviour {
 
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
-		audioPlayer01.GetComponent<AudioPlayer> ().play(true);
+		//audioPlayer01.GetComponent<AudioPlayer> ().play(true);
 	}
 }
