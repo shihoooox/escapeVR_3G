@@ -22,17 +22,29 @@ public class TutorialManager : MonoBehaviour {
 	}
 
 	public bool next(int dialogType) {
-		Debug.Log ("TutorialManager, next()は未完成です");
+	//	Debug.Log ("TutorialManager, next()は未完成です");
+
+		GameObject tar,tar2;  //showを使う時に呼ぶDialogオブジェクト、tar2は前のオブジェクト
+
 		if(dialogType>=401&&dialogType<=406){
+			foreach(GameObject ob in dialogList){
+				if(ob.dialogType == dialogType){
+					tar = ob;
+				}
+				if(ob.dialogType == dialogType-1){
+					tar2 = ob;
+				}
+			}
 			if(dialogType==401){
-				dialogList[0].show (true);
+				tar.show (true);
 				return true;
 			}if (dialogType == 406) {
-				
+				//opening.sceneに移行、未実装
+				Debug.Log ("TutorialManager.next(406)は未完成です");
 				return true;
 			} else {
-				dialogList [dialogType - 402].show (false);
-				dialogList [dialogType - 401].show (true);
+				tar2.show (false);
+				tar.show (true);
 				return true;
 			}
 		}else {
