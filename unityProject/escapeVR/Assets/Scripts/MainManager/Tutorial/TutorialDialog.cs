@@ -3,9 +3,9 @@ using System.Collections;
 
 public class TutorialDialog : MonoBehaviour {
 
-	int dialogType;
-	float period;
-	float amplitude;
+	public int dialogType;
+	public float period;
+	public float amplitude;
 
 	// Use this for initialization
 	void Start () {
