@@ -236,10 +236,18 @@ public class MainManager : MonoBehaviour {
 					if (hitObjectNum == 39) {
 						if (selectedObjectNum == 40) {
 
-							TutorialManager_G.GetComponent<TutorialManager> ().next (1001);
+							TutorialManager_G.GetComponent<TutorialManager> ().next (402);
 							//
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
+						}
+					}
+
+					//16階のボタン
+					if (hitObjectNum == 22) {
+						if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 402) {
+							TutorialManager_G.GetComponent<TutorialManager> ().next (403);
+							//エレベーターを駆動させる処理
 						}
 					}
 

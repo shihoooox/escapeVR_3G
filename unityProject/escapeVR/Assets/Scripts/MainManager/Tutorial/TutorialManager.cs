@@ -6,6 +6,7 @@ public class TutorialManager : MonoBehaviour {
 
 
 	public List<GameObject> dialogList;
+	public int currentTutorialNum;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,7 @@ public class TutorialManager : MonoBehaviour {
 
 
 		if(dialogType>=401&&dialogType<=406){
+			currentTutorialNum++;
 			foreach(GameObject ob in dialogList){
 				if(ob.GetComponent<TutorialDialog>().dialogType == dialogType){
 					tar = ob.GetComponent<TutorialDialog>();
