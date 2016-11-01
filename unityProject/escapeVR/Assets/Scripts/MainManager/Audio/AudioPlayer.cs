@@ -14,12 +14,13 @@ public class AudioPlayer : MonoBehaviour {
 	}
 
 
-	void play(int audioID, bool loop, bool play, int delay){
+	public void play(int audioID, bool loop, bool play, int delay){
 		AudioSynthesizer audioSynthesizer = AudioSynthesizer_G.GetComponent<AudioSynthesizer> ();
 		AudioSource[] audioSources = audioSynthesizer.getAudioSource (audioID);
 
 		if (play) {
 			ulong udelay = (ulong)44.1 * (ulong)delay;
+			audioSources [0].loop = loop;
 			audioSources [0].Play (udelay);
 		} else {
 			audioSources [0].Stop ();

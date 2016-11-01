@@ -249,7 +249,9 @@ public class MainManager : MonoBehaviour {
 					if (hitObjectNum == 22) {
 						if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 402) {
 							TutorialManager_G.GetComponent<TutorialManager> ().next (403);
-							//エレベーターを駆動させる処理
+							//エレベーターの駆動音を再生する処理
+							this.AudioPlayer_G.GetComponent<AudioPlayer>().play(1, false, true, 0); //加速音を再生
+							this.AudioPlayer_G.GetComponent<AudioPlayer>().play(2, true, true, 7000); //ループ音を7秒後に再生
 						}
 					}
 
@@ -260,11 +262,8 @@ public class MainManager : MonoBehaviour {
 		}
 	}
 
-	private int tutorialNum = 402;
 
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
-		this.TutorialManager_G.GetComponent<TutorialManager> ().next (tutorialNum++);
-		Debug.Log ("current tutorialNum : " + tutorialNum);
 	}
 }
