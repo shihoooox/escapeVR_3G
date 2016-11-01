@@ -25,8 +25,8 @@ public class TutorialManager : MonoBehaviour {
 	//	Debug.Log ("TutorialManager, next()は未完成です");
 
 		TutorialDialog tar,tar2;  //showを使う時に呼ぶDialogオブジェクト、tar2は前のオブジェクト
-		tar = null;
-		tar2 = null;
+		tar = new TutorialDialog();
+		tar2 = new TutorialDialog();
 
 
 		if(dialogType>=401&&dialogType<=406){
@@ -41,7 +41,6 @@ public class TutorialManager : MonoBehaviour {
 			if(dialogType==401){
 				
 				tar.show (true);
-
 				return true;
 			}if (dialogType == 406) {
 				//opening.sceneに移行、未実装

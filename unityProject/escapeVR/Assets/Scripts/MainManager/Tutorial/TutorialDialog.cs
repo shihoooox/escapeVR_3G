@@ -10,29 +10,36 @@ public class TutorialDialog : MonoBehaviour {
 	private float inAlpha=1.0f; //透明度
 	public bool fadein;
 	private float num=0.0f;
+	private Color origColor;
+	private Vector3 origPos;
 
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Renderer> ().material.color = new Color(0, 0, 0, 0.0f);
+		//GetComponent<Renderer> ().material.color = new Color(0, 0, 0, 0.0f);
+		this.origColor = this.GetComponent<Renderer> ().material.color;
+		this.origPos = this.transform.position;
 		//Debug.Log ("test");
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		//透明度0%ならオブジェクトが上下する
-		if (GetComponent<Renderer> ().material.color.a >= 1.0f) {
-			this.transform.position += new Vector3 (x, Mathf.Sin(period*Time.time)*amplitude, y);
+		if (this.GetComponent<Renderer>().material.color.a > 0f) {
+			this.transform.position += new Vector3 (x, Mathf.Sin (period * Time.time) * amplitude, y);
+		} else {
+			this.transform.position = origPos;
 		}
-
+		
 		//フェード
 		if (fadein) {     //イン
 			if (num > 1.0) {
 				return;
 			}
 			num+=Time.deltaTime;
-			GetComponent<Renderer> ().material.color = new Color(0, 0, 0, inAlpha*num);
+
+			GetComponent<Renderer> ().material.color = new Color(origColor.r, origColor.g, origColor.b, inAlpha*num);
 			//Debug.Log ("test");
 		} else {        //アウト
 			if (num < 0.0) {
@@ -40,16 +47,12 @@ public class TutorialDialog : MonoBehaviour {
 				return;
 			}
 			num-=Time.deltaTime;
-			GetComponent<Renderer> ().material.color = new Color(0, 0, 0, num);
+			GetComponent<Renderer> ().material.color = new Color(origColor.r, origColor.g, origColor.b, num);
 		}
 	}
 
 	//自身をフェードインさせたりフェードアウトさせたりする
 	public void show (bool b) {
-		if (b) {
-			fadein = true;
-		} else {
-			fadein = false;
-		}
+		this.fadein = b;
 	}
 }

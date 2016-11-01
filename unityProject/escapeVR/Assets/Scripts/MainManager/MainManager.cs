@@ -18,6 +18,12 @@ public class MainManager : MonoBehaviour {
 	void Start () {
 		selectedObjectNum = -2;
 
+		//もしステージが0ならチュートリアル401を呼び出す
+		if(this.stageNumber == 0) this.startZeroStage();
+	}
+
+	void startZeroStage() {
+		bool tmp = this.TutorialManager_G.GetComponent<TutorialManager> ().next (401);
 	}
 	
 	// Update is called once per frame
@@ -244,8 +250,11 @@ public class MainManager : MonoBehaviour {
 		}
 	}
 
+	private int tutorialNum = 402;
+
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
-		//audioPlayer01.GetComponent<AudioPlayer> ().play(true);
+		this.TutorialManager_G.GetComponent<TutorialManager> ().next (tutorialNum++);
+		Debug.Log ("current tutorialNum : " + tutorialNum);
 	}
 }
