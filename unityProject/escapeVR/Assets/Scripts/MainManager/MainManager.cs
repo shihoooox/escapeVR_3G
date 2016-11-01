@@ -10,6 +10,7 @@ public class MainManager : MonoBehaviour {
 	public GameObject ObjectOnGameManager_G; //ObjectOnGameManagerのgameObject
 	public GameObject TutorialManager_G; //TutorialManagerのgameObject
 	public GameObject AudioPlayer_G; //AudioPlayerのgameObject
+	public GameObject MainCamera_G;
 	public int stageNumber;
 
 	private int selectedObjectNum;
@@ -59,6 +60,7 @@ public class MainManager : MonoBehaviour {
 	void eachFrame() {
 		Ray ray_ = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
 		RaycastHit hit_;
+		this.MainCamera_G.GetComponent<Cm> ().setRayPoint (ray_);
 		int focusObjectType = -2;
 		int focusFrameType = -2;
 		if (Physics.Raycast (ray_, out hit_, 100.0f)) {
