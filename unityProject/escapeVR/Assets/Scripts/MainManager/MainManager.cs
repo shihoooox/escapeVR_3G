@@ -205,6 +205,9 @@ public class MainManager : MonoBehaviour {
 				//Debug.Log ("move to " + type);
 				manager.moveTo (type);
 
+				if (this.stageNumber == 1 && type == 80) {
+					this.GetComponent<SceneChanger> ().changeWidthFadeOut (1f, "ending");
+				}
 
 				if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 408) {
 					TutorialManager_G.GetComponent<TutorialManager> ().next (409);
