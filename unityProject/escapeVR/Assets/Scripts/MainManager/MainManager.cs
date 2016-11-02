@@ -297,7 +297,10 @@ public class MainManager : MonoBehaviour {
 	private int currentTutorialNumber = 401;
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
-		this.currentTutorialNumber++;
-		TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
+		//this.currentTutorialNumber++;
+		//TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
+
+		this.AudioPlayer_G.GetComponent<AudioPlayer>().play(2, false, true, 3);
+		this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().motion (37, 1);
 	}
 }

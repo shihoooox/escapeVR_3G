@@ -17,7 +17,7 @@ public class SubObjectMenuFrame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Debug.Log (System.IO.Directory.GetCurrentDirectory());
+		//Debug.Log (System.IO.Directory.GetCurrentDirectory());
 
 		isSelected = false;
 		isUsed = false;

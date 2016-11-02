@@ -10,8 +10,8 @@ public class ObjectOnGameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		foreach (Transform child in transform) {
-			if (!child.name.Equals ("model"))
-				itemList.Add (child.gameObject);
+			//if (!child.name.Equals ("model"))
+			itemList.Add (child.gameObject);
 		}
 	}
 	

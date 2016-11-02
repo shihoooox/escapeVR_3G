@@ -7878,7 +7878,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 228381054}
-  m_LocalRotation: {x: 0.62433827, y: 0.62433827, z: -0.33196658, w: -0.33196658}
+  m_LocalRotation: {x: 0.6243382, y: 0.6243382, z: -0.33196655, w: -0.33196655}
   m_LocalPosition: {x: 0.9463134, y: 0, z: 1.8549294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17729,7 +17729,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9d5cb3bde9c88a949960475181c6f64b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -41609,7 +41609,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4a50e81e224b1024c9cee9ed01b597d0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -57634,7 +57634,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6ee2f236c3a4ab04cad8a0be4298bc8c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -62429,10 +62429,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1599335997}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -0.2708, y: 1.79, z: 1.146}
+  m_LocalRotation: {x: -0.13208574, y: -0.59810543, z: 0.7838929, w: -0.10166185}
+  m_LocalPosition: {x: -0.331, y: 1.704, z: 0.622}
   m_LocalScale: {x: 0.04000014, y: 0.05000015, z: 0.030000104}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 74.7, y: -18.9, z: 180.3}
   m_Children: []
   m_Father: {fileID: 611255582}
   m_RootOrder: 7
@@ -72031,6 +72031,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1781479379}
   - 95: {fileID: 1781479380}
+  - 114: {fileID: 1781479381}
+  - 114: {fileID: 1781479382}
   m_Layer: 0
   m_Name: model
   m_TagString: ObjectOnGame
@@ -72078,6 +72080,31 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1781479381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781479378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765f1c5a4f3684d37a12037ccc768bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 37
+--- !u!114 &1781479382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781479378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7a322c85af13413b9f30b7e57f577e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightDoor: {fileID: 505836194}
+  leftDoor: {fileID: 1474033837}
 --- !u!1 &1781806830
 GameObject:
   m_ObjectHideFlags: 0
