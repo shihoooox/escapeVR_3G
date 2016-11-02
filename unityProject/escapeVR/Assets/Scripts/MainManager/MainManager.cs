@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.VR;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MainManager : MonoBehaviour {
@@ -201,8 +202,13 @@ public class MainManager : MonoBehaviour {
 				MarkerInstance instance = hit.collider.gameObject.GetComponent<MarkerInstance> ();
 				MarkerManager manager = MarkerManager_G.GetComponent<MarkerManager> ();
 				type = instance.objectType;
-				Debug.Log ("move to " + type);
+				//Debug.Log ("move to " + type);
 				manager.moveTo (type);
+
+
+				if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 408) {
+					TutorialManager_G.GetComponent<TutorialManager> ().next (409);
+				}
 			}
 
 			//hitしたのがObjectOnGameなら
@@ -297,10 +303,12 @@ public class MainManager : MonoBehaviour {
 	private int currentTutorialNumber = 401;
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
-		//this.currentTutorialNumber++;
-		//TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
 
-		this.AudioPlayer_G.GetComponent<AudioPlayer>().play(2, false, true, 3);
-		this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().motion (37, 1);
+		if (this.stageNumber == 0) {
+			//this.currentTutorialNumber++;
+			//TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
+
+			this.GetComponent<SceneChanger> ().changeWidthFadeOut (1f, "opening");
+		}
 	}
 }

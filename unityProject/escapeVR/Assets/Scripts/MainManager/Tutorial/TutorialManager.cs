@@ -46,7 +46,8 @@ public class TutorialManager : MonoBehaviour {
 				return true;
 			}if (dialogType == 409) {
 				//opening.sceneに移行、未実装
-				Debug.Log ("TutorialManager.next(406)は未完成です");
+				//Debug.Log ("TutorialManager.next(406)は未完成です");
+				this.transform.root.GetComponent<SceneChanger>().changeWidthFadeOut(1f, "opening");
 				return true;
 			} else {
 				tar2.show (false);
