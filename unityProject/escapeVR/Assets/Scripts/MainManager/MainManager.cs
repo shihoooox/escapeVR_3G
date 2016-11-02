@@ -124,6 +124,7 @@ public class MainManager : MonoBehaviour {
 					//Debug.Log ("P_key pressed, hit type : " + type);
 					if (type > 0) {
 						if (!frame.isSelected) {
+							//チュートリアル
 							if (this.stageNumber == 0 && this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 402 && type == 40)
 								this.TutorialManager_G.GetComponent<TutorialManager> ().next (403);
 							
@@ -131,6 +132,11 @@ public class MainManager : MonoBehaviour {
 							SomManager.indicateSelected (type + 100);
 							selectedObjectNum = type; //選択されているオブジェクトを更新
 						} else {
+
+							//チュートリアル
+							if (this.stageNumber == 0 && this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 406 && type == 41)
+								this.TutorialManager_G.GetComponent<TutorialManager> ().next (407);
+
 							MomManager.showObjectsDetail (type);
 						}
 					}
@@ -150,6 +156,17 @@ public class MainManager : MonoBehaviour {
 
 				//もしnull(-2)でなければ合成処理
 				if (syntheSizedNum != -2) {
+					
+					//チュートリアル
+					if (this.stageNumber == 0 && this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 407 && syntheSizedNum == 43) {
+						//Dialogを変える
+						this.TutorialManager_G.GetComponent<TutorialManager> ().next (408);
+						//open ev door
+						this.AudioPlayer_G.GetComponent<AudioPlayer>().play(2, false, false, 0);
+						this.AudioPlayer_G.GetComponent<AudioPlayer>().play(2, false, true, 3);
+						this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().motion (37, 1);
+					}
+					
 					//MOMのオブジェクト削除
 					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (targetObjNum);
 					MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
@@ -197,6 +214,15 @@ public class MainManager : MonoBehaviour {
 					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().unsetObject (hitObjectNum);
 					this.MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (hitObjectNum);
 					this.SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (hitObjectNum + 100);
+
+
+					//居酒屋のチラシでチュートリアル進行
+					if (hitObjectNum == 41) {
+						if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 405) {
+							TutorialManager_G.GetComponent<TutorialManager> ().next (406);
+						}
+					}
+
 				} else if (staticActNum != -2) { //決まったactNumがあれば(-2でなければ)それを実行
 					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().motion (hitObjectNum, staticActNum);
 				} else {
@@ -261,7 +287,6 @@ public class MainManager : MonoBehaviour {
 							this.AudioPlayer_G.GetComponent<AudioPlayer>().play(2, true, true, 7000); //ループ音を7秒後に再生
 						}
 					}
-
 
 				}
 

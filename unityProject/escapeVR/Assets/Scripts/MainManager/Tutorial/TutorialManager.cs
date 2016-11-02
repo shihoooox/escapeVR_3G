@@ -30,7 +30,7 @@ public class TutorialManager : MonoBehaviour {
 		tar2 = new TutorialDialog();
 
 
-		if(dialogType>=401&&dialogType<=406){
+		if(dialogType>=401&&dialogType<=408){
 			currentTutorialNum++;
 			foreach(GameObject ob in dialogList){
 				if(ob.GetComponent<TutorialDialog>().dialogType == dialogType){
@@ -44,7 +44,7 @@ public class TutorialManager : MonoBehaviour {
 				
 				tar.show (true);
 				return true;
-			}if (dialogType == 406) {
+			}if (dialogType == 409) {
 				//opening.sceneに移行、未実装
 				Debug.Log ("TutorialManager.next(406)は未完成です");
 				return true;

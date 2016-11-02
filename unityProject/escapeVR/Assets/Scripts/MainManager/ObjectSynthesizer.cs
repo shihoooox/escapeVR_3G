@@ -22,6 +22,7 @@ public class ObjectSynthesizer : MonoBehaviour {
 		if (targetObjNum == 1 && selectedObjNum == 9)  return 10;
 		//if (targetObjNum == 6 && selectedObjNum == 2)  return 11; //この処理は今回は別の方法で実現
 		if (targetObjNum ==11 && selectedObjNum == 7)  return 13;
+		if (targetObjNum ==41 && selectedObjNum ==42)  return 43;
 
 		return -2;
 

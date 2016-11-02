@@ -70,7 +70,8 @@ public class MainObjectMenuFrame : MonoBehaviour {
 		if (!isInsideFrame) {
 			childObject.transform.Rotate (Time.deltaTime * 30f, Time.deltaTime * 30f, 0);
 		} else {
-			childObject.transform.rotation = baseChildPos.transform.rotation;
+			childObject.transform.rotation = Camera.main.transform.rotation;//baseChildPos.transform.rotation;
+			childObject.transform.Rotate(-90, 0, 0);
 		}
 
 		//テクスチャ関連
