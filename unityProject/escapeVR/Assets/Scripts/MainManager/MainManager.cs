@@ -85,6 +85,10 @@ public class MainManager : MonoBehaviour {
 	}
 
 	void pressKeyDown_Q() {
+		//チュートリアル処理
+		if (this.stageNumber == 0 && this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 401)
+			this.TutorialManager_G.GetComponent<TutorialManager> ().next (402);
+
 		MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ();
 		SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
 		MomManager.moveToScreen (true);
@@ -105,7 +109,7 @@ public class MainManager : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, 100.0f)) {
 			int type = -2; //衝突したobjectType
 
-			Debug.Log ("hit type : " + hit.collider.gameObject.tag + ", name : " + hit.collider.gameObject.name);
+			//Debug.Log ("hit type : " + hit.collider.gameObject.tag + ", name : " + hit.collider.gameObject.name);
 
 			//hitしたのがMainObjectMenuFrameなら
 			if (hit.collider.gameObject.tag == "MainObjectMenuFrame") {
@@ -117,9 +121,12 @@ public class MainManager : MonoBehaviour {
 					MainObjectMenuManager MomManager = MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> (); //managerのインスタンス取得
 					SubObjectMenuManager SomManager = SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ();
 					type = frame.objectType;
-					Debug.Log ("P_key pressed, hit type : " + type);
+					//Debug.Log ("P_key pressed, hit type : " + type);
 					if (type > 0) {
 						if (!frame.isSelected) {
+							if (this.stageNumber == 0 && this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 402 && type == 40)
+								this.TutorialManager_G.GetComponent<TutorialManager> ().next (403);
+							
 							MomManager.indicateSelected (type);
 							SomManager.indicateSelected (type + 100);
 							selectedObjectNum = type; //選択されているオブジェクトを更新
@@ -238,7 +245,7 @@ public class MainManager : MonoBehaviour {
 					if (hitObjectNum == 39) {
 						if (selectedObjectNum == 40) {
 
-							TutorialManager_G.GetComponent<TutorialManager> ().next (402);
+							TutorialManager_G.GetComponent<TutorialManager> ().next (404);
 							//
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
@@ -247,8 +254,8 @@ public class MainManager : MonoBehaviour {
 
 					//16階のボタン
 					if (hitObjectNum == 22) {
-						if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 402) {
-							TutorialManager_G.GetComponent<TutorialManager> ().next (403);
+						if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 404) {
+							TutorialManager_G.GetComponent<TutorialManager> ().next (405);
 							//エレベーターの駆動音を再生する処理
 							this.AudioPlayer_G.GetComponent<AudioPlayer>().play(1, false, true, 0); //加速音を再生
 							this.AudioPlayer_G.GetComponent<AudioPlayer>().play(2, true, true, 7000); //ループ音を7秒後に再生
@@ -262,8 +269,10 @@ public class MainManager : MonoBehaviour {
 		}
 	}
 
-
+	private int currentTutorialNumber = 401;
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
+		this.currentTutorialNumber++;
+		TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
 	}
 }
