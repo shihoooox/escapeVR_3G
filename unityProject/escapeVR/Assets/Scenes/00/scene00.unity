@@ -7426,7 +7426,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -7438,7 +7438,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -12302,6 +12302,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4000013394558420, guid: d6e704146910d66409ecc83c55a18fd9, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.0007
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6e704146910d66409ecc83c55a18fd9, type: 2}
   m_IsPrefabParent: 0
@@ -12593,7 +12597,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 365868924}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fceaeb339b971b429c4cc600acabd13, type: 3}
   m_Name: 
@@ -12601,12 +12605,12 @@ MonoBehaviour:
   tweakMode: 0
   screenBlendMode: 1
   hdr: 0
-  sepBlurSpread: 1.2
+  sepBlurSpread: 0.5
   quality: 1
-  bloomIntensity: 1.48
+  bloomIntensity: 0.75
   bloomThreshold: 0.31
   bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
-  bloomBlurIterations: 2
+  bloomBlurIterations: 1
   hollywoodFlareBlurIterations: 2
   flareRotation: 0
   lensflareMode: 1
@@ -12639,6 +12643,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   c: {fileID: 806760910}
   rayPoint: {fileID: 1557882716}
+  rayPoint_rotate_x: -90
+  rayPoint_rotate_y: 0
+  rayPoint_rotate_z: 0
   pointDist: 0.2
 --- !u!81 &365868928
 AudioListener:
@@ -15275,7 +15282,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -15287,7 +15294,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -18364,7 +18371,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0.93711966, b: 0.77205884, a: 1}
   m_Intensity: 5
-  m_Range: 3.32
+  m_Range: 1.41
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -23872,7 +23879,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -23884,7 +23891,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -32235,7 +32242,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0.9372549, b: 0.77254903, a: 1}
   m_Intensity: 5
-  m_Range: 3.32
+  m_Range: 1.41
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -33823,7 +33830,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -33835,7 +33842,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -36803,7 +36810,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -36815,7 +36822,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -41051,7 +41058,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -41063,7 +41070,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -49405,7 +49412,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -49417,7 +49424,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -52209,7 +52216,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -52221,7 +52228,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -52805,7 +52812,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -52817,7 +52824,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -54899,7 +54906,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -54911,7 +54918,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -56588,7 +56595,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -56600,7 +56607,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -64697,7 +64704,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -64709,7 +64716,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -66516,7 +66523,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -66528,7 +66535,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
@@ -85266,7 +85273,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 2
-  m_Color: {r: 1, g: 0.8793103, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.8686612, b: 0.72794116, a: 1}
   m_Intensity: 1
   m_Range: 8
   m_SpotAngle: 30
@@ -85278,7 +85285,7 @@ Light:
     m_Strength: 1
     m_Bias: 0
     m_NormalBias: 0.48
-    m_NearPlane: 0.08
+    m_NearPlane: 0.095
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
