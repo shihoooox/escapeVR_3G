@@ -14,7 +14,7 @@ public class endingManager : MonoBehaviour {
 	void Update () {
 		countSec += Time.deltaTime;
 		if (countSec >= 5f) {
-			SceneManager.LoadScene ("scene01");
+			SceneManager.LoadScene ("topMenu");
 			//this.GetComponent<SceneChanger> ().changeWidthFadeOut (1f, "scene01");
 		}
 	}

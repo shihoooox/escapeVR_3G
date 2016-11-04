@@ -210,7 +210,9 @@ public class MainManager : MonoBehaviour {
 				}
 
 				if (this.TutorialManager_G.GetComponent<TutorialManager> ().currentTutorialNum == 408) {
-					TutorialManager_G.GetComponent<TutorialManager> ().next (409);
+					Debug.Log ("to opening");
+					//TutorialManager_G.GetComponent<TutorialManager> ().next (409);
+					this.GetComponent<SceneChanger> ().changeWidthFadeOut (1f, "opening");
 				}
 			}
 
@@ -220,6 +222,7 @@ public class MainManager : MonoBehaviour {
 				int staticActNum = ObjectOnGameManager.getStaticActNumFromObjectType (hitObjectNum, hit.collider.gameObject); //決まったactNumを保存
 
 				if (staticActNum == -3) { //取得可能なオブジェクトの場合
+					Debug.Log("hit num:" + hitObjectNum);
 					this.ObjectOnGameManager_G.GetComponent<ObjectOnGameManager> ().unsetObject (hitObjectNum);
 					this.MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().setObject (hitObjectNum);
 					this.SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().setObject (hitObjectNum + 100);
@@ -308,8 +311,8 @@ public class MainManager : MonoBehaviour {
 		Debug.Log ("E key pressed");
 
 		if (this.stageNumber == 0) {
-			//this.currentTutorialNumber++;
-			//TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
+			this.currentTutorialNumber++;
+			TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
 
 			this.GetComponent<SceneChanger> ().changeWidthFadeOut (1f, "opening");
 		}
