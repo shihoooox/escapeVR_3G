@@ -18,7 +18,7 @@ public class Lighter : MonoBehaviour {
 	void Update () {
 	}
 
-	public bool isReadyToFile() {
+	public bool isReadyToFire() {
 		return fireing;
 	}
 

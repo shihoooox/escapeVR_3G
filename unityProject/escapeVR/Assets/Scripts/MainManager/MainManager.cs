@@ -268,11 +268,12 @@ public class MainManager : MonoBehaviour {
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
 							hit.collider.gameObject.GetComponent<Candle>().forInstanceMotion(2);
-						} else if (selectedObjectNum == 5) { //アルコールランプ（小さいコップ設置）
+						} else if (selectedObjectNum == 5) { //氷設置
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
 							hit.collider.gameObject.GetComponent<Candle>().forInstanceMotion(3);
-						} else if (selectedObjectNum == 8 && MainObjectMenuManager_G.GetComponent<MainObjectMenuManager>().getInstance(8).GetComponent<Lighter>().isReadyToFile()) { //燃やす
+						} else if (selectedObjectNum == 8 && MainObjectMenuManager_G.GetComponent<MainObjectMenuManager>().getInstance(8).GetComponent<Lighter>().isReadyToFire() &&
+							hit.collider.gameObject.GetComponent<Candle>().isAlreadyToFire()) { //燃やす
 							MainObjectMenuManager_G.GetComponent<MainObjectMenuManager> ().unsetObject (selectedObjectNum);
 							SubObjectMenuManager_G.GetComponent<SubObjectMenuManager> ().unsetObject (selectedObjectNum + 100);
 							hit.collider.gameObject.GetComponent<Candle>().forInstanceMotion(1);
@@ -306,15 +307,13 @@ public class MainManager : MonoBehaviour {
 		}
 	}
 
-	private int currentTutorialNumber = 401;
 	void pressKeyDown_E() {
 		Debug.Log ("E key pressed");
 
 		if (this.stageNumber == 0) {
-			this.currentTutorialNumber++;
-			TutorialManager_G.GetComponent<TutorialManager> ().next (currentTutorialNumber);
-
 			this.GetComponent<SceneChanger> ().changeWidthFadeOut (1f, "opening");
+		} else if (this.stageNumber == 1) {
+			
 		}
 	}
 }
