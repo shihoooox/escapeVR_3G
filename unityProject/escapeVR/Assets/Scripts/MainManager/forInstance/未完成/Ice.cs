@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Ice : MonoBehaviour {
 
+	private bool thisGot;
 	private float count = 0f;
 	private bool countTrigger = false;
 	private GameObject target;
@@ -10,6 +11,7 @@ public class Ice : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		target = new GameObject ();
+		thisGot = false;
 	}
 	
 	// Update is called once per frame
@@ -24,6 +26,14 @@ public class Ice : MonoBehaviour {
 				countTrigger = false;
 			}
 		}
+	}
+
+	public void getThis(bool b) {
+		this.thisGot = b;
+	}
+
+	public bool isGot() {
+		return this.thisGot;
 	}
 
 	public void forInstanceMotion(int actNum){	
